@@ -1,0 +1,29 @@
+<h2>Log in</h2>
+<% if flash[:error]  %>
+
+    <br>
+    <strong>
+        <%= flash[:error] %>
+    </strong>
+    <br>
+    <br>
+
+<% end   %>
+<!-- We can also use the 'form_with helper for generic forms that do NOT wokr with a model; to do this, we use url: SOME_URL_HERE
+
+instead of
+
+model:SOME_MODEL_HERE-->
+
+<%= form_with url: login_path, local: true do |f| %>
+    <br>
+    <%= f.label :email, 'Email Address' %>
+    <br>
+    <%= f.text_field :email %>
+    <br>
+    <%= f.label :password, 'Password' %>
+    <br>
+    <%= f.password_field  :password %>
+    <br>
+    <%= f.submit %>
+<% end  %>

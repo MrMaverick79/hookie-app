@@ -1,0 +1,12 @@
+
+<h2>Showing details for <%= @link.name %> </h2>
+<!-- TODO: conditionla image and ico statements-->
+<ul>
+    <li>URL: <%= @link.url %></li>
+    <li>Notes: <%= @link.notes %></li>
+    <li>NSFW? <%= @link.nsfw %></li>
+
+</ul>
+
+<p><%= link_to 'Edit', edit_link_path  %></p> |
+<p><%= link_to 'Delete', link_path(@link.id), method: "delete"  %></p>

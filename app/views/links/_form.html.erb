@@ -1,0 +1,28 @@
+<% if @link.errors.any? %>
+    <strong>Please corrrect the following:</strong>
+    <ul>
+        <% @link.errors.full_messages.each do |e| %>
+            <li><%= e %></li>
+
+        <% end %>
+    </ul>
+
+<% end  %>
+
+<%= form_with model: @link, local: true do |f| %>
+    <%= f.label :name %>
+    <%= f.text_field :name %>
+    <br>
+    <%= f.label :url %>
+    <%= f.text_field :url %>
+    <br>
+    <%= f.label :notes %>
+    <%= f.text_area :notes %>
+    <br>
+    <%= f.label :nsfw, 'Safe for work:'%>
+    <%= f.radio_button  :nsfw, true %>Yes
+    <%= f.radio_button  :nsfw, false %>No<br>
+    <br>
+
+    <%= f.submit %>
+<% end %>

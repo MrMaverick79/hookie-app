@@ -1,0 +1,62 @@
+/*Universal Styles*/
+@import url('https://fonts.googleapis.com/css2?family=Poppins:ital,wght@0,400;0,600;1,400&display=swap');
+
+:root{
+    --main-bg-color: rgba(100, 198, 228, 0.6);
+    --second-bg-color: #4361ee;
+    --main-text-color: #3a0ca3;
+    --second-text-color: #7209b7;
+    --highlight-color: #f72585; 
+
+}
+
+html{
+    font-size: 3vw;
+    font-family: 'Poppins', sans-serif;
+    color: #fff
+    
+}
+
+body{
+    background-color: var(--main-bg-color);
+
+}
+
+
+/*Header */
+header {
+    background-color: var(--second-bg-color);
+    display: flex;
+    height: 10vh;
+    justify-content: center;
+    align-items: center;
+}
+
+header ul  {
+    display: inline-flex;
+}
+
+.user_pic{
+    max-height: 80%;
+}
+
+
+/* Search Bar*/
+
+
+
+/*Sidebar Container*/
+.sidebar_container{
+    background-color: var(--second-bg-color);
+    height: 100vh;
+    width: 15vw;
+}
+
+/*Main container (contains page content) */
+
+.main_container {
+    position: absolute;
+    left: 20vw;
+    top: 20vh;
+}   
+

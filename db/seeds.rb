@@ -144,6 +144,7 @@ h1 = Hook.create!(
     title: "Web Development Links",
     note: "Resources for web development projects",
     color: 'red',
+    private: false,
     user_id: u1.id
 
 )
@@ -152,6 +153,7 @@ h2 = Hook.create!(
     title: "Recipes for guests",
     note: "For when I have to cook something special",
     color: 'blue',
+    private: false,
     user_id: u1.id
 
 )
@@ -160,6 +162,7 @@ h3 = Hook.create!(
     title: "Time-wasters",
     note: "A bunch of fun and distracting stuff",
     color: 'gold',
+    private: true,
     user_id: u2.id
 
 )

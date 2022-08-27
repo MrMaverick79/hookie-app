@@ -1,7 +1,7 @@
 <!DOCTYPE html>
 <html>
   <head>
-    <title>HookieApp</title>
+    <title>Hookie: Smart Bookmarks</title>
     <%= csrf_meta_tags %>
     <%= csp_meta_tag %>
 
@@ -9,7 +9,72 @@
     <%= javascript_include_tag 'application' %>
   </head>
 
+
   <body>
-    <%= yield %>
+
+    <header>
+      
+        <% if @current_user.present?  %>
+          <%= image_tag @current_user.image, class: 'user_pic', alt: @current_user.name %>
+        <ul>
+          <li>Welcome, <%= @current_user.name %></li>
+          <%= link_to 'Logout', login_path, method: 'delete' %> 
+          <%= link_to 'Create New Hook', new_hook_path %> 
+          
+          
+        <% else  %>
+        <ul>
+          <li><%= link_to 'Sign In', login_path%></li>
+          <li><%= link_to 'Sign Up' %></li>
+        <% end  %>
+      </ul>
+
+      <h1>HOOKIE</h1>
+      <ul>
+        <li>
+          <%= link_to 'Home', root_path %>
+        </li>
+        <li>
+          <%= link_to 'Links', links_path %>
+        </li>
+        <li>
+          <%= link_to 'Hooks', hooks_path %>
+        </li>
+
+      </ul>
+    
+    </header>
+
+    <div class="search_container">
+          
+      <form action="/search" method="get" accept-charset="UTF-8" >
+        <label for="query">Search for:</label>
+        <input id="query" name="query" type="text" />
+        <input name="commit" type="submit" value="Search" data-disable-with="Search" />
+      </form>
+    </div>
+
+    <div class="sidebar_container">
+      <div class="user_details">
+        <p>User image and name goes here</p>
+      </div>
+
+    </div>
+
+
+    <div class="main_container">
+    
+      <%= yield %>
+    
+    </div>
+
+    <footer>
+      <ul>
+        <li>
+          &copy; Brendan Tuckerman 2022
+        </li>
+      </ul>
+    </footer>
+
   </body>
 </html>
