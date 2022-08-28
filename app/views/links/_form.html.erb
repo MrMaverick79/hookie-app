@@ -24,5 +24,8 @@
     <%= f.radio_button  :nsfw, false %>No<br>
     <br>
 
+    <%= f.label :hook_id, 'Add to Hook:' %>
+    <%= f.collection_select :hook_id, Hook.all, :id, :title%>
+
     <%= f.submit %>
 <% end %>

@@ -26,7 +26,7 @@ Things you may want to cover:
 ## Log ##
 
 26.8.22
-    * Wireframe, user stories, and DB modelling.
+  * Wireframe, user stories, and DB modelling.
 
 27.8.22
  * Initalisation; Git, Ruby, DB
@@ -37,6 +37,6 @@ Things you may want to cover:
  28.8.22
   * Remaining CRUD routes - User, Tags
   * User authorisation
-   
+
 
 
