@@ -44,7 +44,7 @@ class LinksController < ApplicationController
   end
 
   private
-  #Establish what is expetced and allowed in a links form
+  #Establish what is expected and allowed in a links form
   def link_params
 
     params.require(:link).permit(:name, :url, :color, :notes, :icon, :nsfw, :image)

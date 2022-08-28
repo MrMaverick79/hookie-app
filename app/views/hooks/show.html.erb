@@ -1,2 +1,25 @@
-<h2>My Hooks</h2>
 
+<h2><%= @hook.title %></h2>
+
+<%= link_to 'Edit', edit_hook_path %> 
+|
+<%= link_to 'Delete', hook_path, method: 'delete' %>
+
+<ul>
+    <li><strong>Color:</strong><%= @hook.color %></li>
+    <li><strong>Note:</strong><%= @hook.note%></li>
+    <li><strong>Image:</strong><%= @hook.image%></li>
+    <li><strong>Private?</strong><%= @hook.private %></li>
+
+</ul>
+
+<p>This Hook belongs to <%= link_to @hook.user.name, user_path(@hook.user.id) %></p>
+
+<p>The links in this Hook are</p>
+    <ul>
+    <% @hook.links.each do  |h| %>
+        <li><%= h.name %></li>
+    <% end  %>
+    </ul>
+
+ <%= link_to 'Add Tags', new_tag_path %>

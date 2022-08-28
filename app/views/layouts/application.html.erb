@@ -14,8 +14,10 @@
 
     <header>
       
-        <% if @current_user.present?  %>
-          <%= image_tag @current_user.image, class: 'user_pic', alt: @current_user.name %>
+        <% if @current_user.present? %>      
+          <% if @current_user.image.present? %>
+            <%= image_tag @current_user.image, class: 'user_pic', alt: @current_user.name %>
+          <% end %>
         <ul>
           <li>Welcome, <%= @current_user.name %></li>
           <%= link_to 'Logout', login_path, method: 'delete' %> 
@@ -25,7 +27,7 @@
         <% else  %>
         <ul>
           <li><%= link_to 'Sign In', login_path%></li>
-          <li><%= link_to 'Sign Up' %></li>
+          <li><%= link_to 'Sign Up', new_user_path %></li>
         <% end  %>
       </ul>
 

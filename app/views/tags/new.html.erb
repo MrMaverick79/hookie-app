@@ -1,2 +1,20 @@
-<h1>Tags#new</h1>
-<p>Find me in app/views/tags/new.html.erb</p>
+
+<h2>Create a new tag</h2>
+
+<% if @tag.errors.any? %>
+    <strong>Please corrrect the following:</strong>
+    <ul>
+        <% @tag.errors.full_messages.each do |e| %>
+            <li><%= e %></li>
+
+        <% end %>
+    </ul>
+
+<% end  %>
+
+<%= form_with model: @tag, local: true do |f| %>
+    <%= f.label :name %>
+    <%= f.text_field :name %>
+    
+    <%= f.submit %>
+<% end %>

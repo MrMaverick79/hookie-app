@@ -60,3 +60,15 @@ header ul  {
     top: 20vh;
 }   
 
+
+/* Hooks Containers */
+
+.hook_container {
+    min-height: 25vh;
+    line-height: 1.5;
+    border: 1px solid  #f72585;
+    margin: 10px;
+    border-radius: 10px;
+    padding: 10px;
+
+}

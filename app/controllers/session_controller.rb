@@ -9,7 +9,7 @@ class SessionController < ApplicationController
     if user.present? && user.authenticate( params[:password] )
 
       session[:user_id] = user.id #Also do this when creating a new user. This remembers  the contents across page reloads/. This stores a cookie that will remmeber the session detaiuls in ahash and then reload to know what the statu s iu--they are stored in a cookie. 
-      redirect_to root_path
+      redirect_to hooks_path
 
         #credentials correct
     else

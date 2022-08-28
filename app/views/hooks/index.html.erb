@@ -1,2 +1,23 @@
-<h1>Hooks#index</h1>
-<p>Find me in app/views/hooks/index.html.erb</p>
+
+<h2>My Hooks</h2>
+
+<%= link_to 'New Hook', new_hook_path %>
+
+
+
+<% @hooks.each do |hook| %>    
+    <% if @current_user.present? && hook.user.id == @current_user.id %>
+    
+        <div class="hook_container">
+            <h3 class="hook_title"><%= link_to hook.title, hook_path(hook.id) %>
+            </h3>
+            <% hook.links.each do |l| %>
+                <p><%= l.name %></p>
+       
+            <% end %>
+        </div>  
+    <% end %> 
+
+       
+   
+<% end %>

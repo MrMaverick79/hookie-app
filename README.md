@@ -1,7 +1,6 @@
-# README
+# HOOKIE Bookmarks
 
-This README would normally document whatever steps are necessary to get the
-application up and running.
+Welcome to HOOKIE Bookmarks README.
 
 Things you may want to cover:
 
@@ -23,3 +22,21 @@ Things you may want to cover:
 * Deployment instructions
 
 * ...
+
+## Log ##
+
+26.8.22
+    * Wireframe, user stories, and DB modelling.
+
+27.8.22
+ * Initalisation; Git, Ruby, DB
+ * Models, Associations and Seed Data
+ * Completed database routes (Links, Hooks)
+ * Basic initial styling
+
+ 28.8.22
+  * Remaining CRUD routes - User, Tags
+  * User authorisation
+   
+
+
