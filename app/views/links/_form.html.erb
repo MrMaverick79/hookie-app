@@ -26,6 +26,9 @@
 
     <%= f.label :hook_id, 'Add to Hook:' %>
     <%= f.collection_select :hook_id, Hook.all, :id, :title%>
+    <br>
+    <%= f.label :tag_id, 'Tag this link as' %>
+     <%= f.text_field :tag_id %>
 
     <%= f.submit %>
 <% end %>

@@ -1,27 +1,50 @@
 
-<h2 class="hooks title">My Hooks</h2>
+<h2 class="hooks_main_title">My Hooks</h2>
 
-<div class="index_box">
+<div id="index_box">
 
-<% @hooks.each do |hook| %>    
-    <% if @current_user.present? && hook.user.id == @current_user.id %>
+    <% @hooks.each do |hook| %>    
+        <% if @current_user.present? && hook.user.id == @current_user.id %>
     
         <div class="hook_container">
             <div class="color_label", style= "background-color:<%= hook.color %>">
             </div>
-            <h3 class="hook_title"><%= link_to hook.title, hook_path(hook.id) %>
-            </h3>
+            <div class="hook_title">
+                <h3>
+                    <%= link_to hook.title, hook_path(hook.id) %>
+                </h3>
+                <%= link_to image_tag("plus.png"), new_link_path, class:"add_icon", value:hook.id  %>
+                
+                <%= link_to image_tag("dots-three-circle.png"), edit_hook_path(hook.id), class:"more_icon"  %>
+
+            </div>
             <% hook.links.each do |l| %>
-                <p><%= l.name %></p>
+            <ul>
+                <li><%= link_to l.name, l.url %></li>
+            </ul>
+                
        
             <% end %>
-        <%= link_to image_tag("plus.png"), new_link_path, class:"add_icon", value:hook.id  %>
-            
+
+            <div class="tags_container">
+                <% hook.links.each do |l| %>
+                    <p class ="tags">#<%= l.tags.pluck(:name).join(" ") %></p>
+                <% end %>
+            </div>
         </div>  
+    
     <% end %> 
 
-       
-   
-<% end %>
+
+          
+    <% end %>
+    <div class="hidden">
+        <%= image_tag "plus.png", id:"add_new_hook_image", onclick:"javascript:showHidden()"  %>
+        <div class="add_new_hook">  
+            <%= render partial: 'form' %>
+        </div>
+    </div>
 
 </div>
+
+

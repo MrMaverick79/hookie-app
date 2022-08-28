@@ -22,7 +22,7 @@ html{
 
 h1, h2, h3, h4 {
     font-family: 'Poppins', sans-serif;
-    color: var(--midnight-blue)
+    color: var(--midnight-blue);
 }
 
 body{
@@ -50,7 +50,7 @@ header ul  {
 }
 
 header a{
-    color: #fff
+    color: #fff;
 }
 
 
@@ -60,7 +60,6 @@ header a{
     position: absolute;
     left: 0;
     background-color: rgb(1, 107, 163);
-   
     width: var(--side_bar_width);
     color: #fff;
     height: 10vh;
@@ -92,8 +91,6 @@ header a{
 }
 
 
-
-
 /* Search Bar*/
 .search_container {
     background-color: var(--star-command-blue);
@@ -114,7 +111,6 @@ header a{
     top: 11vh;
     border: none;
     background-color: #fff;
-
     
 }
 
@@ -130,7 +126,7 @@ header a{
 }
 
 .sidebar_container a {
-    color:#fff
+    color:#fff;
 }
 
 
@@ -142,15 +138,36 @@ header a{
     top: 20vh;
 }   
 
+/* Hidden Features */
 
-/* Hooks Containers */
+.hidden{
+    
+    align-self: center;
+}
+
+
+
+
+/* Hooks Index (Main Page) */
+#index_box {
+    display: flex;
+    flex-wrap: wrap;
+   
+}
+
+.add_new_hook{
+    display: none;
+}
 
 .hook_container {
     min-height: 25vh;
+    min-width: 20vw;
     line-height: 1.5;
     border-radius: 10px;
     background-color: #fff;
     color: rgba(61, 61, 61, 0.8);
+    padding: 0 15px;
+    margin: 5vh;
 }
 
 .color_label{
@@ -161,5 +178,30 @@ header a{
     left: 0;
     width: 100%;
     margin-top: 0;
+}
+
+.hook_container img {
+    width: 2vw;
+}
+
+.hook_title{
+    display: inline-flex;
+}
+
+.hook_title h3 {
+    font-size: 0.9em;
+    margin-right: 10px;
+
+
+}
+
+.tags {
+    color:  var(--star-command-blue);
+    border: 2px solid var(--star-command-blue);
+    font-size: 0.6em;
+    background-color: var(--middle-blue);
+    display: inline-flex;
+    font-weight: 700;
+    border-radius: 5%;
 }
 

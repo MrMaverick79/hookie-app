@@ -62,3 +62,5 @@ gem 'ransack'
 gem 'nokogiri'
 gem 'open-uri'
 
+gem 'jquery-rails', '~> 4.4'
+

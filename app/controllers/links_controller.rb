@@ -3,14 +3,19 @@ class LinksController < ApplicationController
   def new
     @link = Link.new
     @hooks = Hook.find_by user: @current_user.id
+    
   end
 
   def create
     @hook = Hook.find params[:link][:hook_id]
+    @tag = Tag.create(
+      name: params[:link][:tag_id]
+    ) 
     @link = Link.create link_params
     
     if @link.persisted? #does thius now have an id
       @link.hooks << @hook
+      @link.tags << @tag
       redirect_to hooks_path
     else
       render :new

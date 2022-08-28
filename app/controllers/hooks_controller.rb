@@ -21,6 +21,7 @@ class HooksController < ApplicationController
   end #end create
 
   def index
+    @hook = Hook.new
     @hooks = Hook.all
     
   
