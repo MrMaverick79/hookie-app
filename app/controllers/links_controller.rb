@@ -44,7 +44,7 @@ class LinksController < ApplicationController
     @link = Link.find params[:id]
 
     if @link.update link_params 
-      redirect_to link_path(@link.id)
+      redirect_to hooks_path
 
     else
       render :edit

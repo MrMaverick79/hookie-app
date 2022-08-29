@@ -27,10 +27,13 @@ class SessionController < ApplicationController
 
   end #create 
   
-
+  # //= require rails-ujs
   def destroy
-    session[:user_id] = nil
+    
+    session.delete(:user_id)
+    
     redirect_to login_path
+    
 
   end #end destroy
 

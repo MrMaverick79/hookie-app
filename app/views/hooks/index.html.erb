@@ -13,12 +13,21 @@
                 <h3>
                     <%= hook.title %>
                 </h3>
-                <%= link_to image_tag("dots-three-circle.png"), edit_hook_path(hook.id), class:"more_icon"  %>
+                <%= link_to image_tag("pencil.png"), edit_hook_path(hook.id), class:"more_icon"  %>
 
             </div>
 
             <div class="notes">
                 <p><%= hook.note %></p>
+            </div>
+            <div class="tags_container">
+                <% hook.links.each do |l| %>
+                    <% l.tags. each do |tag|  %>
+                        <% unless tag.name.strip.empty? %>
+                            <p class ="tags">#<%= tag.name %></p>
+                        <% end %>
+                    <% end %>
+                <% end %>
             </div>
             
             <% hook.links.each do |l| %>
@@ -34,14 +43,10 @@
                 <% end  %>
                 </li>
                 <li>
-                    <%= link_to l.name, l.url, class:"link_name" %> (<%=link_to l.url  %>)
+                    <%= link_to l.name, l.url, class:"link_name" %> (<%=link_to l.url  %>) <%= link_to image_tag('pencil.png') , edit_link_path(l.id), class:"edit_delete_icons", id:"pencil_icon"%> <%= image_tag 'bin.png', class:"edit_delete_icons", onclick:"javascript:linkDelete(#{l.id})" %>
+                    
                 </li>
-                <li>
-                <%= link_to image_tag('pencil.png') , edit_link_path(l.id), class:"edit_delete_icons", id:"pencil_icon"%>
-                </li>
-                <li>
-                <%= image_tag 'bin.png', class:"edit_delete_icons", onclick:"javascript:linkDelete(#{l.id})" %>
-                </li>
+
                 
                 
                
@@ -50,24 +55,20 @@
        
             <% end %>
             <div class="new_link_hidden">
-                <label for="add_new_link_icon">
-                <%= image_tag "plus.png", class:"add_icon", name: "add_new_link_icon", onclick:"javascript:toggleNewLink()"%>
-                Add New Link
+                <ul>
+                    <li class="add_icon"><label for="add_new_link_icon">
+                    <%= image_tag "plus.png", class:"add_icon", name: "add_new_link_icon"%>
+                    Add New Link</li>
+                    <li><li class="hidden_link_form">
+                    <%= render partial: "/links/form" , class:"hidden_link_form" %> </li>
+                </ul>
                 </label>
-                <div class="hidden_link_form">
-                    <%= render partial: "/links/form" %> 
-                </div>
+            
+            </div>
+                    
             </div>
 
-            <div class="tags_container">
-                <% hook.links.each do |l| %>
-                    <% l.tags. each do |tag|  %>
-                        <% unless tag.name.strip.empty? %>
-                        <p class ="tags">#<%= tag.name %></p>
-                        <% end %>
-                    <% end %>
-                <% end %>
-            </div>
+            
         </div>  
     
     <% end %> 
@@ -86,6 +87,7 @@
 
         </div>
     </div>
+    
      
 </div>
 

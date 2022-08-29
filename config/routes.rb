@@ -3,6 +3,7 @@ Rails.application.routes.draw do
   
   
   root to: 'pages#home' 
+  
   get '/login' => 'session#new' #login form
 
   post '/login' => 'session#create' #form submit and login or redirect

@@ -1,9 +1,26 @@
 console.log('Mic check');
 
+//toggle the bin and pencil icons in the hook menus
+$(document).ready(function() {
+    $('.link_name').mouseover(function(){
+        const target = $(this).siblings()
+        console.log(target);
+        target.toggle( "slow", function(){
+
+        })
+    
+
+    });
+ 
+
+});
+
 //Shows the form to enter a new hook on the index page
 const showHidden = () => {
     console.log("Clicked!");
-    $('.add_new_hook').toggle()
+    $('.add_new_hook').toggle("fast", function() {
+
+    })
 };
 
 
@@ -11,13 +28,23 @@ const showHidden = () => {
 //TODO toggle takes params
 const showUserMenu = () => {
     console.log('Clicked');
-    $('.hidden_user_menu').toggle()
+    $('.hidden_user_menu').toggle("fast", function() {
+
+    })
 }; 
 
 //reveals/hides new link form
-const toggleNewLink = () => {
-    $('.hidden_link_form').toggle()
-};
+$(document).ready(function() {
+    $('.add_icon').on('click', function(){
+        const target = $(this).nextAll()
+        console.log(target);
+        target.toggle( "slow", function(){
+
+        })
+    
+    })
+});
+
 
 //confirm the deletion of account, link, hook
 const  checkDelete = (id) => {
@@ -65,8 +92,6 @@ const  linkDelete = (id) => {
         };
     
 
-    $("a").css(
-        "color", "red" 
-    )
+
       
     

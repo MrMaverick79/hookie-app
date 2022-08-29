@@ -26,16 +26,16 @@
         
           </div>
           <ul>
-            <li>Welcome, <%= @current_user.name %>  <%=image_tag 'chevron.png', alt:"user menu", id:"user_menu_chevron", onclick:"javascript:showUserMenu()"%></li>
-              <div class="hidden_user_menu">
+            <li>Welcome, <%= @current_user.name %>  <%=image_tag 'chevron.png', alt:"user menu", id:"user_menu_chevron", onmouseover:"javascript:showUserMenu()"%></li>
+              <div class="hidden_user_menu", onmouseleave="javascript:showUserMenu()">
                 <ul>
                   <li><%= link_to 'Edit my Details', edit_user_path(@current_user.id) %></li>
                   <br>
-                  <li><%= link_to 'Logout', login_path, method: 'delete' %></li> 
+                  <li><%= link_to 'Logout', login_path, method:'delete' %></li> 
                 </ul>
               </div>
             
-          <% else  %>
+        <% else  %>
           <div class="logged_out">
           <ul>
             <li><%= link_to 'Sign In', login_path%></li>
@@ -57,14 +57,7 @@
     
     </header>
 
-    <div class="search_container">
-          
-      <form action="/search" method="get" accept-charset="UTF-8" >
-        <input id="query" name="query" type="text" placeholder ="Search Hooks"/>
-        <input id="search_button" name="commit" type="submit" value="Search" data-disable-with="Search" />
-      </form>
-    </div>
-
+  
     
 
 
@@ -76,14 +69,14 @@
               <%= link_to 'Create New Hook', new_hook_path %>
             </li>
             <li>
-              <%= link_to 'All Hooks', hooks_path %>
+              <%= link_to 'My Hooks', hooks_path %>
             </li>
             <li>
               <%= link_to 'Add Link', new_link_path %>
             </li>
             
             <li>
-              <%= link_to 'All Links' %>
+              <%= link_to 'My Links', links_path %>
             </li>
           <% end  %>
 

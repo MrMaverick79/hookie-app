@@ -43,6 +43,7 @@ class UsersController < ApplicationController
 
   def destroy
     User.destroy params[:id]
+    
     redirect_to login_path
 
   end
