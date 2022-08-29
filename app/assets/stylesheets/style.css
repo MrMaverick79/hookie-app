@@ -37,7 +37,21 @@ input {
     margin: 10px;
 }
 
-a::after{
+.sidebar_container ul{
+    width: 100%;
+}
+
+.sidebar_container li{
+    border-top: 2px solid #fff;
+    
+}
+
+.sidebar_container a{
+    padding: 10px;
+    
+}
+
+.sidebar_container a::after{
     opacity: 1;
     content: '';
     display: block;
@@ -51,8 +65,8 @@ a::after{
 
 }
 
-a:hover::after,
-a:focus::after{
+.sidebar_container a:hover::after,
+.sidebar_container a:focus::after{
 
     /* transform: translate3d(0, 0.2em, 0); */
     transform: scale(1);
@@ -74,6 +88,17 @@ header ul  {
 
 header a{
     color: #fff;
+}
+
+.hookie_title_container{
+    position: absolute;
+    right: 5vw;
+}
+
+header h1 {
+    text-align: end;
+    font-size: 3em;
+    color:  var(--rubine-red);
 }
 
 
@@ -177,11 +202,13 @@ header a{
 
 /*Sidebar Container*/
 .sidebar_container{
+    display: flex;
+    min-height: 100%;
     background-color: var(--star-command-blue);
-    height: 100vh;
-    width: 15vw;
+    min-width: 15vw;
     font-size: 0.8rem;
     line-height: 2;
+    
     
 }
 
@@ -191,12 +218,10 @@ header a{
 
 
 /*Main container (contains page content) */
-
 .main_container {
-    position: absolute;
-    left: 20vw;
-    top: 35vh;
-}   
+    display: flex;
+}
+
 
 /* Hidden Features */
 
@@ -210,6 +235,7 @@ header a{
 /* Hooks Index (Main Page) */
 .hooks_main_title{
     font-size: 3em;
+    margin: 5vw;
 }
 
 #index_box {
@@ -238,6 +264,7 @@ header a{
     color: rgba(61, 61, 61, 0.8);
     padding: 0 15px;
     margin: 5vh;
+    font-size: 0.5em;
 }
 
 .color_label{
@@ -251,11 +278,7 @@ header a{
 }
 
 .hook_container img {
-    width: 2vw;
-}
-
-.hook_title{
-    display: inline-flex;
+    width: 1vw;
 }
 
 .hook_title h3 {
@@ -264,6 +287,35 @@ header a{
 
 
 }
+.links_list{
+    display: inline-flex;
+    width: 90%;
+}
+
+/* Hidden Link Form */
+.hidden_link_form{
+    display: none;
+}
+
+
+
+/* Bin and Pencil Icons in Hook Container */
+.edit_delete_icons{
+    display: inline;
+    opacity: 0.5;
+    padding-left: 10px;
+
+}
+
+.edit_delete_icons:hover{
+    background-color: var(--rubine-red);
+    cursor: pointer;
+    border-radius: 10px;
+
+}
+
+
+
 
 /*hook form for index page */
 .hook_form_container{
@@ -277,6 +329,11 @@ header a{
     border-radius: 5px;
     border: 1px solid var(--gray_text);
     max-width: 20vw;
+}
+
+.add_icon:hover{
+    background-color: var(--rubine-red);
+    border-radius: 50%;
 }
 
 /* Placeholder size: first for Chrome and then Firefox */
@@ -386,3 +443,8 @@ header a{
     text-overflow: ellipsis;
 }
 
+/*edit hook container */
+.edit_hook_container {
+    margin: 5vh;
+    padding: 10px;
+}

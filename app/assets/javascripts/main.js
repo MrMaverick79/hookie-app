@@ -14,7 +14,12 @@ const showUserMenu = () => {
     $('.hidden_user_menu').toggle()
 }; 
 
-//confirm the deletion of acocunt, link, hook
+//reveals/hides new link form
+const toggleNewLink = () => {
+    $('.hidden_link_form').toggle()
+};
+
+//confirm the deletion of account, link, hook
 const  checkDelete = (id) => {
     console.log('Clicked');
     if (confirm('Are you sure you want to proceed?\n\nWARNING: This cannot be undone.')) {
@@ -30,3 +35,38 @@ const  checkDelete = (id) => {
 
  
 };
+
+const  linkDelete = (id) => {
+    console.log('Clicked');
+    if (confirm('Are you sure you want to proceed?\n\nWARNING: This cannot be undone.')) {
+        // Remove it
+        console.log('This object was removed from the database.');
+        return window.location.href = `/links/${id}/delete`;
+        
+      } else {
+        // Do nothing!
+        console.log('Thing was not removed from the database.');
+        
+      }
+    };
+
+    const  hookDelete = (id) => {
+        console.log('Clicked');
+        if (confirm('Are you sure you want to proceed?\n\nWARNING: This cannot be undone.')) {
+            // Remove it
+            console.log('This object was removed from the database.');
+            return window.location.href = `/hooks/${id}/delete`;
+            
+          } else {
+            // Do nothing!
+            console.log('Thing was not removed from the database.');
+            
+          }
+        };
+    
+
+    $("a").css(
+        "color", "red" 
+    )
+      
+    

@@ -54,7 +54,7 @@ class LinksController < ApplicationController
 
   def destroy
     Link.destroy params[:id]
-    redirect_to links_path
+    redirect_to hooks_path
   end
 
   # def find_ico url#finds an icon for the website

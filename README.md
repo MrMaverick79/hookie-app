@@ -21,7 +21,7 @@ Things you may want to cover:
 
 * Deployment instructions
 
-* ...
+
 
 ## Log ##
 
@@ -39,4 +39,6 @@ Things you may want to cover:
   * User authorisation
 
 
+## Attributions ##
 
+Thanks to iconscout for the use of the icons.

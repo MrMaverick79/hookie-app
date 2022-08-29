@@ -1,8 +1,8 @@
 
-<h2 class="hooks_main_title">My Hookmarks</h2>
+
 
 <div id="index_box">
-
+    <h2 class="hooks_main_title">My Hookmarks</h2>
     <% @hooks.each do |hook| %>    
         <% if @current_user.present? && hook.user.id == @current_user.id %>
     
@@ -20,8 +20,9 @@
             <div class="notes">
                 <p><%= hook.note %></p>
             </div>
+            
             <% hook.links.each do |l| %>
-            <ul>
+            <ul class="links_list">
                 <li>
                 <% if  l.icon?%>
                     <% if l.url[0..3] == 'http' %>
@@ -31,15 +32,26 @@
                          <%= image_tag  'http://' + l.icon %>
                     <% end  %>
                 <% end  %>
-                <%= link_to l.name, l.url %>
                 </li>
+                <li>
+                    <%= link_to l.name, l.url, class:"link_name" %> (<%=link_to l.url  %>)
+                </li>
+                <li>
+                <%= link_to image_tag('pencil.png') , edit_link_path(l.id), class:"edit_delete_icons", id:"pencil_icon"%>
+                </li>
+                <li>
+                <%= image_tag 'bin.png', class:"edit_delete_icons", onclick:"javascript:linkDelete(#{l.id})" %>
+                </li>
+                
+                
+               
             </ul>
                 
        
             <% end %>
             <div class="new_link_hidden">
                 <label for="add_new_link_icon">
-                <%= link_to image_tag("plus.png"), new_link_path, class:"add_icon", value:hook.id, name: "add_new_link_icon" %>
+                <%= image_tag "plus.png", class:"add_icon", name: "add_new_link_icon", onclick:"javascript:toggleNewLink()"%>
                 Add New Link
                 </label>
                 <div class="hidden_link_form">
@@ -62,7 +74,7 @@
 
 
           
-    <% end %>
+   <% end %>
     <div class="hidden">
         <label for="add_new_hook_image">
             <%= image_tag "plus.png", id:"add_new_hook_image", onclick:"javascript:showHidden()", name:"add_new_hook_image"  %>
@@ -74,7 +86,7 @@
 
         </div>
     </div>
-
+     
 </div>
 
 

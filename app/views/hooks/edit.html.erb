@@ -1,4 +1,7 @@
 
-<h2>Editing HookMark: "<%= @hook.title %>"</h2>
-
+<div class="edit_hook_container">
+    <h2>Edit your Hookmark<h2>
     <%= render partial: "form" %>
+    <button><%= link_to 'Delete', "javascript:hookDelete(#{@hook.id})", method: "delete" %></button>
+</div>
+
