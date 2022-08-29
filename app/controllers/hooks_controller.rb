@@ -23,6 +23,7 @@ class HooksController < ApplicationController
   def index
     @hook = Hook.new
     @hooks = Hook.all
+    @link = Link.new
     
   
     end

@@ -9,6 +9,7 @@ class LinksController < ApplicationController
   end
 
   def create
+    @hooks = Hook.find_by user: @current_user.id
     @hook = Hook.find params[:link][:hook_id]
     @tag = Tag.create(
       name: params[:link][:tag_id]

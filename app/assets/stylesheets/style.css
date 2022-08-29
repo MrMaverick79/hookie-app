@@ -37,6 +37,26 @@ input {
     margin: 10px;
 }
 
+a::after{
+    opacity: 1;
+    content: '';
+    display: block;
+    text-align: start;
+    width: 50%;
+    height: 0.1em;
+    background-color: var(--rubine-red);
+    transition: opacity 1000ms, transform 1000ms;
+    transform: scale(0);
+    transform-origin: left;
+
+}
+
+a:hover::after,
+a:focus::after{
+
+    /* transform: translate3d(0, 0.2em, 0); */
+    transform: scale(1);
+}
 
 /*Header */
 header {
@@ -211,7 +231,7 @@ header a{
 
 .hook_container {
     min-height: 25vh;
-    min-width: 20vw;
+    max-width: 20vw;
     line-height: 1.5;
     border-radius: 10px;
     background-color: #fff;
@@ -333,6 +353,24 @@ header a{
   .slider.round:before {
     border-radius: 50%;
   }
+
+  /*New Link For */
+.new_link_form {
+    border: 1px solid var(--pacific-blue);
+    padding: 10px;
+    max-width: 100%;
+    font-size: 0.8em;
+    border-radius: 5px;
+    margin-bottom: 10px;
+}
+
+.new_link_form input, select {
+    max-width: 15vw;
+    font-size: 0.8em;
+    border-radius: 5px;
+    border: 2px solid var(--gray_text);
+
+}
 
 
 .tags {

@@ -11,6 +11,8 @@ Rails.application.routes.draw do
   
   resources :users, :links, :hooks, :tags
 
+  get '/users/:id/delete' => 'users#destroy', as: 'destroy_user'
+
 
   # For details on the DSL available within this file, see http://guides.rubyonrails.org/routing.html
 end

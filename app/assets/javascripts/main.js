@@ -13,3 +13,20 @@ const showUserMenu = () => {
     console.log('Clicked');
     $('.hidden_user_menu').toggle()
 }; 
+
+//confirm the deletion of acocunt, link, hook
+const  checkDelete = (id) => {
+    console.log('Clicked');
+    if (confirm('Are you sure you want to proceed?\n\nWARNING: This cannot be undone.')) {
+        // Remove it
+        console.log('This object was removed from the database.');
+        return window.location.href = `/users/${id}/delete`;
+        
+      } else {
+        // Do nothing!
+        console.log('Thing was not removed from the database.');
+        
+      }
+
+ 
+};

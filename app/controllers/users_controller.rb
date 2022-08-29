@@ -42,6 +42,9 @@ class UsersController < ApplicationController
   end
 
   def destroy
+    User.destroy params[:id]
+    redirect_to login_path
+
   end
 
   private

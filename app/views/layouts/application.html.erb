@@ -17,10 +17,11 @@
       <div class="user_container">
         <div class="profile_pic_container">
         <% if @current_user.present? %>      
-          <% unless @current_user.image.empty? %>
-            <%= image_tag @current_user.image, class: 'user_pic', alt: @current_user.name %>
-          <% else %>
+          <% unless @current_user.image.present? %>
             <%= image_tag "user.png", class: 'user_pic', alt: @current_user.name %>
+          <% else %>
+            <%= image_tag @current_user.image, class: 'user_pic', alt: @current_user.name %>
+            
           <% end %>
         
           </div>
