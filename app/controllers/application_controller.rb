@@ -33,6 +33,9 @@ def fetch_user
   
     end #end check_if_logged_in
 
+    
+    
+
 end #end class ApplicationController
 
 

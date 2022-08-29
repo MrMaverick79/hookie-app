@@ -1,5 +1,5 @@
 
-<h2 class="hooks_main_title">My Hooks</h2>
+<h2 class="hooks_main_title">My Hookmarks</h2>
 
 <div id="index_box">
 
@@ -13,22 +13,43 @@
                 <h3>
                     <%= link_to hook.title, hook_path(hook.id) %>
                 </h3>
-                <%= link_to image_tag("plus.png"), new_link_path, class:"add_icon", value:hook.id  %>
-                
                 <%= link_to image_tag("dots-three-circle.png"), edit_hook_path(hook.id), class:"more_icon"  %>
 
             </div>
+
+            <div class="notes">
+                <p><%= hook.note %></p>
+            </div>
             <% hook.links.each do |l| %>
             <ul>
-                <li><%= link_to l.name, l.url %></li>
+                <li>
+                <% if  l.icon?%>
+                    <% if l.url[0..3] == 'http' %>
+                       <%= image_tag l.icon %>
+
+                    <% else %>
+                         <%= image_tag  'http://' + l.icon %>
+                    <% end  %>
+                <% end  %>
+                <%= link_to l.name, l.url %>
+                </li>
             </ul>
                 
        
             <% end %>
+            <br>
+            <label for="add_new_link_icon">
+            <%= link_to image_tag("plus.png"), new_link_path, class:"add_icon", value:hook.id, name: "add_new_link_icon" %>
+            Add New Link
+            </label>
 
             <div class="tags_container">
                 <% hook.links.each do |l| %>
-                    <p class ="tags">#<%= l.tags.pluck(:name).join(" ") %></p>
+                    <% l.tags. each do |tag|  %>
+                        <% unless tag.name.strip.empty? %>
+                        <p class ="tags">#<%= tag.name %></p>
+                        <% end %>
+                    <% end %>
                 <% end %>
             </div>
         </div>  
@@ -39,8 +60,12 @@
           
     <% end %>
     <div class="hidden">
-        <%= image_tag "plus.png", id:"add_new_hook_image", onclick:"javascript:showHidden()"  %>
+        <label for="add_new_hook_image">
+            <%= image_tag "plus.png", id:"add_new_hook_image", onclick:"javascript:showHidden()", name:"add_new_hook_image"  %>
+            
+        </label>
         <div class="add_new_hook">  
+            <h2>Add New Hookmark</h2>
             <%= render partial: 'form' %>
         </div>
     </div>

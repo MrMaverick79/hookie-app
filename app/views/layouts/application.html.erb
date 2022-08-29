@@ -17,7 +17,7 @@
       <div class="user_container">
         <div class="profile_pic_container">
         <% if @current_user.present? %>      
-          <% if @current_user.image.present? %>
+          <% unless @current_user.image.empty? %>
             <%= image_tag @current_user.image, class: 'user_pic', alt: @current_user.name %>
           <% else %>
             <%= image_tag "user.png", class: 'user_pic', alt: @current_user.name %>
@@ -25,9 +25,14 @@
         
           </div>
           <ul>
-            <li>Welcome, <%= @current_user.name %></li>
-            <%= link_to 'Logout', login_path, method: 'delete' %> 
-          
+            <li>Welcome, <%= @current_user.name %>  <%=image_tag 'chevron.png', alt:"user menu", id:"user_menu_chevron", onclick:"javascript:showUserMenu()"%></li>
+              <div class="hidden_user_menu">
+                <ul>
+                  <li><%= link_to 'Edit my Details', edit_user_path(@current_user.id) %></li>
+                  <br>
+                  <li><%= link_to 'Logout', login_path, method: 'delete' %></li> 
+                </ul>
+              </div>
             
           <% else  %>
           <div class="logged_out">

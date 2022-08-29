@@ -65,6 +65,8 @@ class HooksController < ApplicationController
     redirect_to hooks_path
   end
 
+ 
+
   private
 
   def hook_params

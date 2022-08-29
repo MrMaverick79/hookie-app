@@ -1,33 +1,36 @@
+<div class="hook_form_container">
+    <% if @hook.errors.any? %>
+        <strong>Please corrrect the following:</strong>
+        <ul>
+            <% @hook.errors.full_messages.each do |e| %>
+                <li><%= e %></li>
 
-<% if @hook.errors.any? %>
-    <strong>Please corrrect the following:</strong>
-    <ul>
-        <% @hook.errors.full_messages.each do |e| %>
-            <li><%= e %></li>
+            <% end %>
+        </ul>
 
-        <% end %>
-    </ul>
+    <% end  %>
 
-<% end  %>
+    <%= form_with model: @hook, local: true do |f| %>
 
-<%= form_with model: @hook, local: true do |f| %>
+        <%= f.label :title %>
+        <%= f.text_field :title, placeholder:'What is this Hookmark all about?' %>
+        <br>
+        <%= f.label :note %>
+        <%= f.text_area :note, placeholder:'Use these notes to describe the Hookmark collection.', size: "30x5" %>
+        <br>
+        <%= f.label :color %>
+        <%= f.color_field :color %>
+        <br>
+        <div class="switch_container"> 
+            <p>Private?</p>
+            <label class="switch">
+                
+                <input type="checkbox", name="private">
+                <span class="slider round"></span>
+            </label>
+        </div>
+        
 
-    <%= f.label :title %>
-    <%= f.text_field :title %>
-    <br>
-    <%= f.label :note %>
-    <%= f.text_area :note %>
-    <br>
-    <%= f.label :color %>
-    <%= f.color_field :color %>
-    <br>
-    <%= f.label :image ,"Image URL--may be replaced by Gem"%>
-    <%= f.text_field :image %>
-    <br>
-    <%= f.label :private, 'Make Hook Private?:'%>
-    <%= f.radio_button  :private, true %>Yes
-    <%= f.radio_button  :private, false %>No<br>
-    <br>
-
-    <%= f.submit %>
-<% end %>
+        <%= f.submit %>
+    <% end %>
+</div>
