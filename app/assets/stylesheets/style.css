@@ -6,9 +6,9 @@
     --gold-metallic: hsla(48, 100%, 42%, 1);
     --midnight-blue: hsla(239, 94%, 19%, 1);
     --star-command-blue: hsla(201, 100%, 36%, 1);
-    --pacific-blue: hsla(190, 100%, 42%, 1);
+    --pacific-blue: hsla(190, 100%, 42%, 0.8);
     --middle-blue: hsla(189, 75%, 75%, 1);
-    --light-cyan: hsla(190, 77%, 88%, 1);
+    --light-cyan: hsla(190, 77%, 88%, 0.6);
     --side_bar_width: 15vw;
     --header_height: 15vh;
     --menu_highlight: rgba(61, 61, 61, 0.2);
@@ -48,6 +48,7 @@ input {
 
 .sidebar_container a{
     padding: 10px;
+
     
 }
 
@@ -80,6 +81,8 @@ header {
     justify-items: right;
     width: 100%;
     z-index: -30;
+    border-bottom: 6px solid var(--light-cyan);
+
 }
 
 header ul  {
@@ -95,7 +98,8 @@ header a{
     right: 5vw;
 }
 
-header h1 {
+/* Main title on login page and in header */
+header h1, .title_hookie {
     text-align: end;
     font-size: 3em;
     color:  var(--rubine-red);
@@ -108,7 +112,7 @@ header h1 {
     background-color: var(--star-command-blue);
     width: var(--side_bar_width);
     color: #fff;
-    height: var(--header_height);
+    height: 17vh;
     font-size: 0.5em;
     display: flex;
     align-items: center;
@@ -116,15 +120,38 @@ header h1 {
     z-index: 0;
     
 }
+/* The signin and signup buttons when logged out */
+.logged_out{
+    
+    width: 15vw;
+    padding: 10px;
+    
+}
 
-.logged_out ul{
-    width: 8vw;
+.logged_out ul{    
+    margin-left: 25%;
+    text-align: center;
+    
 }
 
 .logged_out li{
     padding: 10px;
-    width: 3vw;
+    border: 2px solid #fff;
+    width: 8vw;
+    padding: 15px;
+    margin-right: 10px;
+    border-radius: 50px;
+    
 }
+
+.logged_out li:hover{
+   cursor: pointer;
+   background-color: var(--rubine-red)
+    
+}
+
+
+ 
 
 .profile_pic_container{
     margin-right: 5px;
@@ -214,6 +241,7 @@ header h1 {
     min-width: 15vw;
     font-size: 0.8rem;
     line-height: 2;
+    border-right: 6px solid var(--light-cyan);
     
     
 }

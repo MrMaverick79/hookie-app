@@ -1,5 +1,7 @@
 
-<h2>Create an account</h2>
+<div class="login_container">
+
+    
 
     <% if @user.errors.any?    %>
         <strong>Please complete the following errors:</strong>
@@ -9,25 +11,27 @@
             <% end %>
         </ul>
     <% end  %>
-
-<%= form_with model: @user, local: true do |f| %>
-    <%= f.label :name, 'Display Name:' %>
-    <br>
-    <%= f.text_field :name %>
-    <br>
-    <%= f.label :email %>
-    <br>
-    <%= f.text_field :email %>
-    <br>
-    <%= f.label :password %>
-    <br>
-    <%= f.password_field :password %>
-    <br>
-    <%= f.label :password_confirmation %>
-    <br>
-    <%= f.password_field :password_confirmation %> <!--this needs to be in the strong params in the model -->
-    <br>
-    <%= f.submit  %>
+    
+    <div class="login_form">
+        <h2>Create an account</h2>
+        <%= form_with model: @user, local: true do |f| %>
+            
+            <%= f.text_field :name, placeholder:"choose display name" %>
+            <br>
+            
+            <%= f.text_field :email, placeholder:"email" %>
+            <br>
+           
+            <%= f.password_field :password, placeholder:"password" %>
+            <br>
+            
+            <%= f.password_field :password_confirmation, placeholder:"confirm your password" %> <!--this needs to be in the strong params in the model -->
+            <br>
+            <%= f.submit class:"button"  %>
 
 
-<% end  %>
+        <% end  %>
+    </div>
+
+
+</div>
