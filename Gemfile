@@ -60,7 +60,7 @@ gem 'ransack'
 
 ##Suports html query to parse HTML docs
 gem 'nokogiri'
-gem 'open-uri'
+# gem 'open-uri'
 
 gem 'jquery-rails', '~> 4.4'
 

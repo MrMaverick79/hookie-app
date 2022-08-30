@@ -23,30 +23,51 @@
 
             <div class="tags_container">
                 <% hook.links.each do |l| %>
-                    <% l.tags. each do |tag|  %>
-                        <% if tag.name != nil  %>
-                            <% unless tag.name.strip.empty? %>
-                                <p class ="tags">#<%= link_to tag.name, tags_path %></p>
-                            <% end %>
-                        <% end  %>
-                    <% end %>
+                    
+                        <% l.tags.each do |tag|  %>
+                            <% if tag.name != nil  %>
+                                <% unless tag.name.strip.empty? %>
+                                    <% name_list = []  %>
+                                    <% name_list << tag.name   %>
+                                    <% name_list.uniq!  %>
+                                    <% name_list.each do |name|%>
+                                        <p class ="tags">#<%= link_to name, tags_path %></p>
+                                    <%  end%>
+                                <% end %>
+                            <% end  %>
+                        <% end %>
+                    
                 <% end %>
             </div> <!--end tags constainer-->
             
             <% hook.links.each do |l| %>
             <ul class="links_list">
-                <li>
-                <% if  l.icon?%>
-                    <% if l.url[0..3] == 'http' %>
-                       <%= image_tag l.icon %>
-
+                <li> 
+                    <% if l.icon? %>
+                    
+                  
+                        <% if l.url[0..3] == 'http' %>
+                           <% if (l.url =~ URI::regexp) %>
+                                  <%= image_tag l.icon %>
+                            <% else %>
+                                <%= image_tag 'dot.png'%>
+                            <% end  %>
+                        <% else %>
+                            <% url =  'https://' + l.icon %>
+                            <% begin open(url).status[1] == 'OK'  %>
+                            <% rescue  %>
+                                <%= image_tag 'dot.png'%>
+                                  
+                            <% else %>
+                                <%= image_tag url %>
+                            <% end  %>
+                        <% end  %>
                     <% else %>
-                         <%= image_tag  'http://' + l.icon %>
+                        <%= image_tag 'plus.png'%>
                     <% end  %>
-                <% end  %>
                 </li>
                 <li>
-                    <%= link_to l.name, l.url, class:"link_name" %> (<%=link_to l.url  %>) <%= link_to image_tag('pencil.png') , edit_link_path(l.id), class:"edit_delete_icons", id:"pencil_icon"%> <%= image_tag 'bin.png', class:"edit_delete_icons", onclick:"javascript:linkDelete(#{l.id})" %>
+                    <%= link_to l.name,  l.url, class:"link_name" %> (<%=link_to l.url  %>) <%= link_to image_tag('pencil.png') , edit_link_path(l.id), class:"edit_delete_icons", id:"pencil_icon"%> <%= image_tag 'bin.png', class:"edit_delete_icons", onclick:"javascript:linkDelete(#{l.id})" %>
                     
                 </li>
 
