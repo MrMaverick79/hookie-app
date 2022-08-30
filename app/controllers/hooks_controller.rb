@@ -30,6 +30,7 @@ class HooksController < ApplicationController
 
   def show
     @hook = Hook.find params[:id]
+    redirect hooks_path
   end
 
   def edit
@@ -51,8 +52,8 @@ class HooksController < ApplicationController
 
     if @hook.update hook_params
 
-      redirect_to hook_path(@hook)
-      #You can also just type 'redirect_to @mixtape'
+      redirect_to hooks_path
+      
 
     else
       render :edit

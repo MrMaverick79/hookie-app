@@ -1,25 +1,26 @@
+<div class="outer_container">
+    <h2 >My Hookmarks</h2>
 
-
-
-<div id="index_box">
-    <h2 class="hooks_main_title">My Hookmarks</h2>
+    <div id="index_box">
+  
     <% @hooks.each do |hook| %>    
         <% if @current_user.present? && hook.user.id == @current_user.id %>
     
         <div class="hook_container">
             <div class="color_label", style= "background-color:<%= hook.color %>">
-            </div>
+            </div> <!--end color label-->
             <div class="hook_title">
                 <h3>
                     <%= hook.title %>
                 </h3>
-                <%= link_to image_tag("pencil.png"), edit_hook_path(hook.id), class:"more_icon"  %>
-
-            </div>
+                <%= link_to image_tag("pencil.png"), edit_hook_path(hook.id), class:"more_icon" %>
+                
+            </div><!--end hook title-->
 
             <div class="notes">
                 <p><%= hook.note %></p>
-            </div>
+            </div> <!--end notes title-->
+
             <div class="tags_container">
                 <% hook.links.each do |l| %>
                     <% l.tags. each do |tag|  %>
@@ -30,7 +31,7 @@
                         <% end  %>
                     <% end %>
                 <% end %>
-            </div>
+            </div> <!--end tags constainer-->
             
             <% hook.links.each do |l| %>
             <ul class="links_list">
@@ -66,12 +67,12 @@
                 </ul>
                 </label>
             
-            </div>
+            </div> <!--end new_link hidden-->
                     
-            </div>
+           
 
             
-        </div>  
+        </div>   <!--end hooks container-->
     
     <% end %> 
 
@@ -87,10 +88,10 @@
             <h2>Add New Hookmark</h2>
             <%= render partial: 'form' %>
 
-        </div>
-    </div>
+        </div> <!--end add_new_hook-->
+    </div><!--end hidden-->
     
      
+    </div><!--end index box-->
 </div>
-
 

@@ -2,10 +2,8 @@ console.log('Mic check');
 
 //toggle the bin and pencil icons in the hook menus
 $(document).ready(function() {
-    $('.link_name').mouseover(function(){
-        const target = $(this).siblings()
-        console.log(target);
-        target.toggle( "slow", function(){
+    $('.links_list li').hover(function(){
+        $('.edit_delete_icons').stop().toggle( "slow", function(){
 
         })
     

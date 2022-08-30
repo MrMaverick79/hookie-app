@@ -1,0 +1,142 @@
+/* Hooks Index (Main Page) */
+.outer_container{
+  
+    flex-direction: row;
+}
+
+.outer_container h2 {
+    font-size: 2em;
+    margin: 2vh;
+}
+
+
+#index_box{
+    display: flex;
+    flex-wrap: wrap;
+    justify-content:left;
+    flex-grow: 1;
+    flex-direction: row;
+}
+
+
+.add_new_hook{
+    display: none;
+}
+
+#add_new_hook_image:hover{
+    cursor:pointer;
+    background-color: var(--rubine-red);
+    border-radius: 50%;
+}
+
+.hook_container {
+    min-height: 25vh;
+    max-width: 30vh;
+    line-height: 1.8;
+    border-radius: 10px;
+    background-color: #fff;
+    color: rgba(61, 61, 61, 0.8);
+    padding: 0 15px;
+    margin: 5vh;
+    font-size: 0.5em;
+}
+
+.color_label{
+    content: "";
+    position: relative;
+    height: 10px;
+    top: 0;
+    left: 0;
+    width: 100%;
+    margin-top: 0;
+}
+
+.notes {
+    border-bottom: 2px solid var(--gray_text);
+    margin: 5px;
+}
+
+.hook_container img {
+    width: 1vw;
+}
+
+.hook_title{
+ display: inline-flex;
+ align-items: center;
+ 
+
+}
+
+.hook_title img{
+    min-width: 1.5em;
+    
+}
+
+.hook_title h3 {
+    font-size: 1.5em;
+    margin-right: 10px;
+}
+.links_list{
+    display: inline-flex;
+    width: 90%;
+}
+
+/* Hidden Link Form */
+.hidden_link_form{
+    display: none;
+   
+}
+
+.hidden_link_form input{
+    max-width: 90%;
+}
+
+
+
+
+
+
+/* Bin and Pencil Icons in Hook Container */
+.edit_delete_icons{
+    display: inline;
+    opacity: 0.5;
+    padding-left: 10px;
+    display: none;
+
+}
+
+.edit_delete_icons:hover{
+    background-color: var(--rubine-red);
+    cursor: pointer;
+    border-radius: 10px;
+
+}
+
+
+/*hook form for index page */
+.hook_form_container{
+    background-color: #fff;
+    border-radius: 10px;
+    padding: 10px;
+
+    
+}
+.hook_form_container input {
+    border-radius: 5px;
+    border: 1px solid var(--gray_text);
+    max-width: 20vw;
+}
+
+.add_icon:hover{
+    background-color: var(--rubine-red);
+    border-radius: 50%;
+}
+
+/* Placeholder size: first for Chrome and then Firefox */
+.hook_form_container input::-webkit-input-placeholder {
+    font-size: 0.7em;
+} 
+
+.hook_form_container input::-moz-placeholder {
+    font-size: 0.7em;
+}

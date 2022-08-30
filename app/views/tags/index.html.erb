@@ -3,7 +3,7 @@
 
 
     <% @tags.each do |tag| %>
-        <% unless tag.name.empty? %>
+        <% unless tag.name.nil? || tag.name.strip == "" %>
             <% if find_user(tag.name) == true %>
                 <h3 id=<%=tag.name%>>#<%= tag.name %></h3>
                     <ul>
