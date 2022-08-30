@@ -23,9 +23,11 @@
             <div class="tags_container">
                 <% hook.links.each do |l| %>
                     <% l.tags. each do |tag|  %>
-                        <% unless tag.name.strip.empty? %>
-                            <p class ="tags">#<%= tag.name %></p>
-                        <% end %>
+                        <% if tag.name != nil  %>
+                            <% unless tag.name.strip.empty? %>
+                                <p class ="tags">#<%= link_to tag.name, tags_path %></p>
+                            <% end %>
+                        <% end  %>
                     <% end %>
                 <% end %>
             </div>

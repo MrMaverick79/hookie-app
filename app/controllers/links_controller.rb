@@ -11,15 +11,19 @@ class LinksController < ApplicationController
   def create
     @hooks = Hook.find_by user: @current_user.id
     @hook = Hook.find params[:link][:hook_id]
-    @tag = Tag.create(
-      name: params[:link][:tag_id]
-    ) 
+    @tags = params[:link][:tag_name]
+    
+    
+
+
     @link = Link.new link_params
+    associate_tags @tags, @link
     @link.icon = create_icon @link.url
     @link.hooks << @hook
-    @link.tags << @tag
+    # @link.tags << @tag
     @link.save
-    if @link.persisted? #does thius now have an id
+    if @link.persisted?  # ie does this now have an id
+      
       redirect_to hooks_path
     else
       render :new
@@ -74,6 +78,19 @@ class LinksController < ApplicationController
 
 # end #end find_ico
   private
+
+  def associate_tags tags, link
+    tags = tags.split
+   
+    tags.each do |tag|
+     
+      new_tag = Tag.create(
+        name: tag
+      )
+      link.tags << new_tag 
+      
+    end #end each do
+  end #end associate tags
 
   def create_icon url 
     "#{url}" + "/favicon.ico"

@@ -10,6 +10,8 @@ class TagsController < ApplicationController
 
   def index
     @tags = Tag.all
+    
+   
   end
 
   def show
@@ -34,5 +36,7 @@ class TagsController < ApplicationController
     params.require(:tag).permit(:name)
 
   end
+
+ 
 
 end

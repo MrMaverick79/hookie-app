@@ -28,8 +28,16 @@
         <%= f.collection_select :hook_id, Hook.where(user_id: @current_user.id), :id, :title %>
         <br>
         
-        <%= f.text_field :tag_id, placeholder: "Tag this link as" %>
-
-        <%= f.submit %>
+        <%= f.label :tag_id,  "Seperate tags with space or comma" %>
+        
+        <%= f.text_field :tag_name, placeholder: 
+        "Tag this link as", id:"tag_input" %>
+       
+        
+        <ul class="new_tags">
+            
+        </ul>
+        
+        <%= f.submit "Submit", id:"tag_submit"%>
     <% end %>
 </div>

@@ -15,6 +15,8 @@ $(document).ready(function() {
 
 });
 
+
+
 //Shows the form to enter a new hook on the index page
 const showHidden = () => {
     console.log("Clicked!");
@@ -92,6 +94,58 @@ const  linkDelete = (id) => {
         };
     
 
+//Tag entry form logic.
+
+$(document).ready(function() {
+    const input = $('#tag_input')
+    const list = $('.new_tags')
+    
+    
+    input.keydown(function(event) {
+        
+            console.log(event.which);
+            if (event.which === 32 && input.val().length > 2 || event.which === 188 && input.val().length > 2) {
+                
+                console.log('Passing!');
+                let newLi = document.createElement("li")
+                
+                newLi.innerHTML = input.val() + " "
+                list.append(newLi); 
+                input.val("") 
+            }
+    })
+    
+    
+
+});
+    
+
+//remove tags from new tag list if added incorrectly
+$(document).ready(function() {
+    $('.new_tags').on('click', function() {
+
+        ($(this.lastChild.remove()));
+
+    })
+
+})
+
+//add all of the tags to the form so that they are submitted
+
+//onclick
+$(document).ready(function() {
+    $('#tag_submit').mousedown(function(){
+        console.log('mousedown');
+        const input = $('#tag_input:text')
+        //TODO: exisitng value is not accepted
+        let text = $('.new_tags li').text()
+        input.val(text); 
+        console.log(input.val());
+    })
+});
+//grab all of the ul li and the value of the input
+
+//add them all to the 'Tag_id"
 
       
     
