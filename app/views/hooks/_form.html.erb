@@ -1,4 +1,4 @@
-<div class="hook_form_container">
+<div class="login_form" id="new_hookmark_form">
     <% if @hook.errors.any? %>
         <strong>Please corrrect the following:</strong>
         <ul>
@@ -12,25 +12,25 @@
 
     <%= form_with model: @hook, local: true do |f| %>
 
-        <%= f.label :title %>
+        
         <%= f.text_field :title, placeholder:'What is this Hookmark all about?' %>
         <br>
-        <%= f.label :note %>
-        <%= f.text_area :note, placeholder:'Use these notes to describe the Hookmark collection.', size: "30x5" %>
+        
+        <%= f.text_area :note, placeholder:'Use this section to describe the Hookmark collection.', size: "30x5" %>
         <br>
-        <%= f.label :color %>
+        <%= f.label :color, class:"label"%>
         <%= f.color_field :color %>
         <br>
         <div class="switch_container"> 
-            <p>Private?</p>
+            <p class="label">Private?</p>
             <label class="switch">
                 
-                <input type="checkbox", name="private">
+                <input type="checkbox", name="private" value="private">
                 <span class="slider round"></span>
             </label>
         </div>
         
 
-        <%= f.submit %>
+        <%= f.submit class:"button"%>
     <% end %>
 </div>
