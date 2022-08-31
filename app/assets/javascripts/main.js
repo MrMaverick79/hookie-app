@@ -1,12 +1,15 @@
 console.log('Mic check');
 
-//toggle the bin and pencil icons in the hook menus
+//toggle the bin and pencil icons in the hook menus for the specific icon
 $(document).ready(function() {
-    $('.links_list li').hover(function(){
-        $('.edit_delete_icons').stop().toggle( "slow", function(){
+    $('.links_list li').hover(function(e){
+        console.log($(e.target.children));
+        $(e.target.children[2]).stop().toggle( "slow", function(){
 
         })
-    
+        $(e.target.children[3]).stop().toggle( "slow", function(){
+
+        })
 
     });
  
@@ -16,6 +19,7 @@ $(document).ready(function() {
 
 
 //Shows the form to enter a new hook on the index page
+// TODO send the keyword selected based on the specific board selected
 const showHidden = () => {
     console.log("Clicked!");
     $('.add_new_hook').toggle("fast", function() {
@@ -100,7 +104,7 @@ $(document).ready(function() {
     
     
     input.keydown(function(event) {
-        
+            //breaks the tags into words using space or comma,
             console.log(event.which);
             if (event.which === 32 && input.val().length > 2 || event.which === 188 && input.val().length > 2) {
                 
@@ -135,8 +139,9 @@ $(document).ready(function() {
     $('#tag_submit').mousedown(function(){
         console.log('mousedown');
         const input = $('#tag_input:text')
+        const existing = $('#tag_input'.val())
         //TODO: exisitng value is not accepted
-        let text = $('.new_tags li').text()
+        let text = $('.new_tags li').text() + existing
         input.val(text); 
         console.log(input.val());
     })

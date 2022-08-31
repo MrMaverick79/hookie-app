@@ -50,7 +50,8 @@ class LinksController < ApplicationController
 
   def update
     @link = Link.find params[:id]
-
+    @tags = params[:link][:tag_name]
+    associate_tags @tags, @link
     if @link.update link_params 
       redirect_to hooks_path
 

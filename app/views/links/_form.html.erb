@@ -20,14 +20,7 @@
         <%= f.text_area :notes, placeholder: "You can make a note about this link here", size: "20x5" %>
         <br>
         
-        <div class="switch_container"> 
-            <p class="label">Safe for Work?</p>
-            <label class="switch">
-                
-                <input type="checkbox", name="nsfw" value="nsfw">
-                <span class="slider round"></span>
-            </label>
-        </div>
+        
 
         <%= f.label :hook_id, 'Add to Hook:', class:"label" %>
         <%= f.collection_select :hook_id, Hook.where(user_id: @current_user.id), :id, :title, class:"select_choices" %>
@@ -43,6 +36,15 @@
         <ul class="new_tags">
             
         </ul>
+
+        <div class="switch_container"> 
+            <p class="label">NSFW?</p>
+            <label class="switch">
+                
+                <input type="checkbox", name="nsfw" value="nsfw">
+                <span class="slider round"></span>
+            </label>
+        </div>
         
         <%= f.submit "Submit", id:"tag_submit" ,class:"button"%>
     <% end %>

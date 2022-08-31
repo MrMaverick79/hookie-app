@@ -26,7 +26,7 @@ class TagsController < ApplicationController
 
   def destroy
     Tag.destroy params[:id]
-    redirect_to hook_path(@current_user.id)
+    redirect_to hooks_path
   end
 
   private 

@@ -1,4 +1,19 @@
 
-<h2>Editing <%= @link.name %>:</h2>
+<div class="login_container">
+    <h2>Editing <%= @link.name %>:</h2>
 
-<%= render partial: "form" %>
+    <%= render partial: "form" %>
+</div>
+
+<div class="tag_sidebar">
+    <h3>Tags</h3>
+    <ul>
+        <% @link.tags.each do |tag | %>
+            <li>
+                <%= link_to tag.name, tag_path(tag.id), method: 'delete'  %>      
+            </li>
+        <% end  %>
+    </ul>
+    
+
+</div>
