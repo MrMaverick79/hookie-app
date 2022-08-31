@@ -12,8 +12,12 @@
             <div class="hook_title">
                 <h3>
                     <%= hook.title %>
+                   
                 </h3>
                 <%= link_to image_tag("pencil.png"), edit_hook_path(hook.id), class:"more_icon" %>
+                 <% if hook.private %>
+                        <%= image_tag "exclamation.png", alt: "Private" ,:title => "This Hookmark is set to private"  %>
+                    <% end %>
                 
             </div><!--end hook title-->
 
@@ -23,20 +27,22 @@
 
             <div class="tags_container">
                 <% hook.links.each do |l| %>
-                    
+                        <!--Display the tags-->
                         <% l.tags.each do |tag|  %>
                             <% if tag.name != nil  %>
                                 <% unless tag.name.strip.empty? %>
-                                    <% name_list = []  %>
-                                    <% name_list << tag.name   %>
-                                    
-                                    <% name_list.uniq!  %>
-                                    <% name_list.each do |name|%>
-                                        <p class ="tags">#<%= link_to name, tags_path %></p>
-                                    <%  end%>
+                                    <% @name_list = []  %>
+                                    <% @name_list << tag.name   %>
                                 <% end %>
                             <% end  %>
                         <% end %>
+                                    <!--Tags should be unique-->
+                                    <% if @name_list !=nil %>
+                                        <% @name_list.uniq!  %>
+                                        <% @name_list.each do |name|%>
+                                            <p class ="tags">#<%= link_to name, tags_path %></p>
+                                        <%  end%>
+                                    <% end  %>
                     
                 <% end %>
             </div> <!--end tags constainer-->
@@ -68,7 +74,12 @@
                     <% end  %>
                 </li>
                 <li>
-                    <%= link_to l.name,  l.url, class:"link_name" %> (<%= link_to l.url, l.url, class:"link_name"  %>)<%= link_to image_tag('pencil.png') , edit_link_path(l.id), class:"edit_delete_icons", id:"pencil_icon"%> <%= image_tag 'bin.png', class:"edit_delete_icons", onclick:"javascript:linkDelete(#{l.id})" %>
+                    <%= link_to l.name,  l.url, class:"link_name" %> (<%= link_to l.url, l.url, class:"link_name"  %>)
+                    
+                    <%= link_to image_tag('pencil.png') , edit_link_path(l.id), class:"edit_delete_icons", id:"pencil_icon"%> <%= image_tag 'bin.png', class:"edit_delete_icons", onclick:"javascript:linkDelete(#{l.id})" %>
+                    <% if l.nsfw %>
+                        <%= image_tag "exclamation.png", alt: "NSFW", :title => "NSFW Content" %>
+                    <% end %>
                     
                 </li>
 
