@@ -1,0 +1,13 @@
+/*Users Css rules*/
+
+/*Edit Details Page*/
+#delete_account_btn{
+    background-color: var(--rubine-red);
+    padding: 3%;
+}
+
+#delete_account_btn:hover{
+    background-color: rgb(233, 43, 122);
+    padding: 3%;
+}
+

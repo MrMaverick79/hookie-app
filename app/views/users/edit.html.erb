@@ -1,4 +1,5 @@
- <h2>Edit Your Details:</h2>
+<div class="login_container">
+ <h2>Edit Your Details</h2>
  
  <% if @user.errors.any?    %>
         <strong>Please complete the following errors:</strong>
@@ -8,30 +9,32 @@
             <% end %>
         </ul>
     <% end  %>
-
+<div class="login_form">
 <%= form_with model: @user, local: true, html: { multipart: true } do |f| %>
-    <%= f.label :name, 'Display Name:' %>
+    <%= f.label :name, 'Display Name*' %>
     <br>
     <%= f.text_field :name %>
     <br>
-    <%= f.label :email %>
+    <%= f.label :email, 'Email*' %>
     <br>
     <%= f.text_field :email %>
     <br>
     <%= f.label :image, 'Profile Picture:' %>
     <br>
-    <%= f.file_field :image %>
+    <%= f.file_field :image%>
     <br>
-    <%= f.label :password %>
+    <%= f.label :password, 'Password (min 7 characters)'%>
     <br>
-    <%= f.password_field :password %>
+    <%= f.password_field :password  %>
     <br>
     <%= f.label :password_confirmation %>
     <br>
     <%= f.password_field :password_confirmation %> <!--this needs to be in the strong params in the model -->
     <br>
-    <%= f.submit  %>
+    <%= f.submit class:"button"  %>
 
 
 <% end  %>
-<p><%= link_to 'Delete My Account', "javascript:checkDelete(#{@current_user.id})", method: "delete" %></p>
+<p><%= link_to 'Delete My Account', "javascript:checkDelete(#{@current_user.id})", method: "delete", class:"button", id:"delete_account_btn" %></p>
+    </div>
+</div>
