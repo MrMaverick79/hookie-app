@@ -31,14 +31,30 @@ class UsersController < ApplicationController
   end
 
   def update
+    
     @user = User.find params[:id]
-    if @user.update user_params 
-       
-      redirect_to hooks_path(@user.id)
-    else
-      render :edit
 
-    end #if
+
+   
+    
+
+
+    if @user.update user_params 
+       #check if a file was uploaded by the form and
+    # if so, forwrd that file onto cloudinary, 
+    # and then save the update back into the @user.
+      if params[:user][:image].present?
+        #upload and capture the response., which includes a new id.
+        response = Cloudinary::Uploader.upload params[:user][:image]
+        @user.image = response["public_id"]
+        @user.save #do I need this?
+      end
+        
+        redirect_to hooks_path(@user.id)
+      else
+        render :edit
+
+      end #if
   end
 
   def destroy

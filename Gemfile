@@ -64,3 +64,5 @@ gem 'nokogiri'
 
 gem 'jquery-rails', '~> 4.4'
 
+
+gem "cloudinary", "~> 1.23"

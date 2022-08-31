@@ -30,11 +30,16 @@ h1, h2, h3, h4 {
 
 body{
     background-color: var(--light-cyan);
+    position: relative;
 
 }
 
 input {
     margin: 10px;
+}
+
+.sidebar_container{
+    font-weight:bold;
 }
 
 .sidebar_container ul{
@@ -59,7 +64,7 @@ input {
     text-align: start;
     width: 50%;
     height: 0.1em;
-    background-color: var(--rubine-red);
+    background-color: var(--midnight-blue);
     transition: opacity 1000ms, transform 1000ms;
     transform: scale(0);
     transform-origin: left;
@@ -103,6 +108,8 @@ header h1, .title_hookie {
     text-align: end;
     font-size: 3em;
     color:  var(--rubine-red);
+    font-weight: 900;
+    text-shadow: 3px 3px var(--pacific-blue);
 }
 
 
@@ -150,7 +157,6 @@ header h1, .title_hookie {
     
 }
 
-
  
 
 .profile_pic_container{
@@ -159,8 +165,10 @@ header h1, .title_hookie {
 
 .user_pic{
     background-color: #fff;
-    border-radius: 50%;
-    max-width: 2.5vw;
+    border-radius: 1vh;
+    max-width: 4vw; 
+    border: 4px solid var(--midnight-blue);
+    margin-left: 10px;
 
 }
 
@@ -259,6 +267,8 @@ header h1, .title_hookie {
 /* Do not touch */
 .main_container {
     display: flex;
+    padding-bottom: 2.5rem;
+    min-height: 100vh;
 }
 
 
@@ -309,4 +319,20 @@ header h1, .title_hookie {
 .edit_hook_container {
     margin: 5vh;
     padding: 10px;
+}
+
+footer {
+    position: absolute;
+    width: 100%;
+    bottom: 0;
+    height: 2.5rem;
+    font-size: 0.4em;
+    text-align: center;
+    background-color: var(--star-command-blue);
+    border-top: 6px solid var(--light-cyan);
+    
+}
+
+footer ul{
+    margin-top: 5%
 }

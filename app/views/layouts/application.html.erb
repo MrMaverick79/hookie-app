@@ -7,6 +7,7 @@
 
     <%= stylesheet_link_tag    'application', media: 'all' %>
     <%= javascript_include_tag 'application' %>
+    <%= cloudinary_js_config %>
   </head>
 
 
@@ -20,7 +21,7 @@
           <% unless @current_user.image.present? %>
             <%= image_tag "user.png", class: 'user_pic', alt: @current_user.name %>
           <% else %>
-            <%= image_tag @current_user.image, class: 'user_pic', alt: @current_user.name %>
+            <%= cl_image_tag @current_user.image, class: 'user_pic', alt: @current_user.name %>
             
           <% end %>
         
@@ -86,15 +87,17 @@
     
       <%= yield %>
     
-    </div>
+      
 
-      <footer>
+    </div>
+    <footer>
         <ul>
           <li>
             &copy; Brendan Tuckerman 2022
           </li>
         </ul>
       </footer>
+      
 
   </body>
 </html>
