@@ -1,0 +1,10 @@
+#links_list {
+    line-height: 1.5;
+    text-align: left;
+
+}
+
+.links_notes{
+    color: var(--gray_text);
+    font-size: 0.8em;
+}

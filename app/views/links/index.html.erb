@@ -1,14 +1,22 @@
+<div class="login_container">
 
-<h2>My links</h2>
+    <h2>All Links</h2>
+    <div class="login_form" id="links_list">
+         
 
-    <%= link_to 'Add New Link', new_link_path %>
-
-<ul>
-    <% @links.each do |link| %>
-        <% link.hooks.each do |hook| %>
-            <% if hook.user.id == @current_user.id %>
-                <li><strong><%=  link_to link.name, link_path(link.id) %>:</strong> <%= link_to link.url  %></li>
+        <ul>
+            <% @links.each do |link| %>
+                <% link.hooks.each do |hook| %>
+                    <% if hook.user.id == @current_user.id %>
+                        <li><strong><%=  link_to link.name, edit_link_path(link.id) %>:</strong> <%= link_to link.url  %></li>
+                        <li class="links_notes"><%= link.notes %></li>
+                    <% end  %>
+                <% end  %>    
             <% end  %>
-        <% end  %>    
-    <% end  %>
-</ul>
+        </ul>
+        <%= link_to 'Add New Link', new_link_path, class:'button' %>
+    </div>
+        
+
+</div>
+

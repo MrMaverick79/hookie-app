@@ -49,6 +49,7 @@
       </div>
     <div class="hookie_title_container">
       <h1 class=hookie_title>HOOKIE</h1>
+      <h3 class="hookie_subtitle">B O O K M A R K S</h3>
     </div>
 
     
@@ -67,7 +68,7 @@
         <ul>
           <% if @current_user.present? %>
             <li>
-              <%= link_to 'Create New Hook', new_hook_path %>
+              <%= link_to 'New Hookmark', new_hook_path %>
             </li>
             <li>
               <%= link_to 'My Hooks', hooks_path %>

@@ -9,8 +9,9 @@
 }
 
 .outer_container h2 {
-    font-size: 2em;
+    font-size: 1em;
     margin: 2vh;
+    text-shadow: 2px 2px var(--middle-blue)
 }
 
 
@@ -25,6 +26,22 @@
 
 .add_new_hook{
     display: none;
+    margin-bottom: 5vh;
+    max-width: 33vw;
+}
+
+.add_new_hook input{
+    max-width: 80%;
+    font-size: 0.8em;
+}
+
+.add_new_hook textarea{
+    max-width: 80%;
+    font-size: 0.8em;
+}
+
+#add_new_hook_image{
+    margin-left: 5vw;
 }
 
 #add_new_hook_image:hover{
@@ -35,7 +52,7 @@
 
 .hook_container {
     min-height: 25vh;
-    max-width: 30vh;
+    max-width: 33vh;
     line-height: 1.8;
     border-radius: 10px;
     background-color: #fff;
@@ -45,6 +62,8 @@
     font-size: 0.5em;
     box-shadow: 2px 2px var(--pacific-blue);
 }
+
+
 
 .color_label{
     content: "";
@@ -80,6 +99,7 @@
 .hook_title h3 {
     font-size: 1.5em;
     margin-right: 10px;
+    text-shadow: 1px 1px var(--middle-blue)
 }
 .links_list{
     display: inline-flex;
@@ -91,13 +111,25 @@
 }
 
 /* Hidden Link Form */
+/*container*/
+.new_link_hidden{
+    padding-bottom: 2vh;
+}
+
+
 .hidden_link_form{
     display: none;
+    margin: 2vh;
+    font-size: 1.3em;
    
 }
 
-.hidden_link_form input{
-    max-width: 90%;
+.hidden_link_form input, .hidden_form textarea{
+    max-width: 85%;
+    font-size: 1em;
+}
+.hidden_link_form .button{
+    margin-left: 15%;
 }
 
 

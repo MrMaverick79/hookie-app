@@ -1,0 +1,37 @@
+/*Media Queries*/
+/*Small Screens -phones*/
+@media (min-width: 640px){
+    .main_container{
+        display: relative
+    }
+    
+    
+}
+
+/*Tablets*/
+@media (min-width: 768px){
+    
+    
+    
+}
+/*Desktop*/
+@media (min-width: 1024px){
+
+    /*application.html.erb*/
+    /*main title in header*/
+    .hookie_title_container{
+        margin-bottom: 1vh;
+    }
+
+    .hookie_title_container h1{
+        font-size: 2em;
+    }
+    
+    
+}
+/*Large Screens*/
+@media (min-width: 1200px){
+    
+    
+    
+}

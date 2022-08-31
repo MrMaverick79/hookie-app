@@ -106,10 +106,14 @@ header a{
 /* Main title on login page and in header */
 header h1, .title_hookie {
     text-align: end;
-    font-size: 3em;
+    font-size: 2.5em;
     color:  var(--rubine-red);
     font-weight: 900;
     text-shadow: 3px 3px var(--pacific-blue);
+}
+
+.hookie_subtitle {
+    text-align: center;
 }
 
 
