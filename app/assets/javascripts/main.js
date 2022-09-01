@@ -3,7 +3,7 @@ console.log('Mic check');
 //toggle the bin and pencil icons in the hook menus for the specific icon
 $(document).ready(function() {
     $('.links_list li').hover(function(e){
-        console.log($(e.target.children));
+        
         $(e.target.children[2]).stop().toggle( "slow", function(){
 
         })
@@ -12,8 +12,7 @@ $(document).ready(function() {
         })
 
     });
- 
-
+   
 });
 
 
@@ -132,18 +131,22 @@ $(document).ready(function() {
 
 })
 
-//add all of the tags to the form so that they are submitted
 
-//onclick
+//add all of the tags to the input of the form so so that they are submitted
+
 $(document).ready(function() {
     $('#tag_submit').mousedown(function(){
-        console.log('mousedown');
-        const input = $('#tag_input:text')
-        const existing = $('#tag_input'.val())
-        //TODO: exisitng value is not accepted
-        let text = $('.new_tags li').text() + existing
-        input.val(text); 
-        console.log(input.val());
+        // console.log('mousedown'); TESTING
+        const input = $('#tag_input').val()
+        // console.log(`input= ${input}`);TESTING
+        const text = $('.new_tags li').text()  
+        // console.log(`Text= ${text}`); TESTING
+        let test = (text + input);
+        // console.log(test); TESTING
+        $('#tag_input').val(test);
+        // console.log($('#tag_input').val()); TESTING
+    
+       
     })
 });
 //grab all of the ul li and the value of the input

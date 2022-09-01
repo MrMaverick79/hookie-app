@@ -8,6 +8,18 @@ class UsersController < ApplicationController
 
     if @user.persisted?
       session[:user_id] = @user.id #log in
+
+      #Create a 'My First Hookmark Board'
+
+      Hook.create(
+        title: "My First Hookmark!",
+        note: "Add your favourite links below!",
+        color: "rgb(255, 99, 71)",
+        private: false,
+        user_id: @user.id
+
+      )
+
       redirect_to hooks_path(@user.id)
     else
       render :new

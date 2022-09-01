@@ -33,11 +33,15 @@
                                 <% unless tag.name.strip.empty? %>
                                     <% @name_list = []  %>
                                     <% @name_list << tag.name   %>
+                                    
                                 <% end %>
+                                    
                             <% end  %>
+                                
                         <% end %>
                                     <!--Tags should be unique-->
                                     <% if @name_list !=nil %>
+                                        
                                         <% @name_list.uniq!  %>
                                         <% @name_list.each do |name|%>
                                             <p class ="tags">#<%= link_to name, tags_path %></p>

@@ -1,8 +1,11 @@
 module ApplicationHelper
      require 'open-uri'
+     require 'uri'
     
-  def create_icon url #add route to favicon
-      "#{url}" + "/favicon.ico"
+  def create_icon url  #add route to favicon
+        uri = URI.parse(url)
+        base = "#{uri.scheme}://#{uri.host}"
+        "#{base}" + "/favicon.ico"
     end #end create_icon
 
     #TODO: Make this part of the edit and create process so it is not run each time
