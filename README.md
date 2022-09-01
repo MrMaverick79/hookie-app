@@ -2,15 +2,18 @@
 
 Welcome to **HOOKIE Bookmarks** README.
 
-==HOOKIE== is a simple to use platform for storing bookmarks in categories-or hooks--in a way that makes them easy to find and access them.
+**HOOKIE** is a simple to use platform for storing bookmarks in categories-or hooks--in a way that makes them easy to find and access them.
 
 
 
 **Features**:
 
 :file_folder: Easy to use collections to store, edit, and access your links.
-:bookmark_tabs: Tag your links and view similar links in any category
-:speech_baloon: Notes for both Hooks and Links so you know why you stored them in the first place.
+
+:bookmark_tabs: Tag your links and view similar links in any category.
+
+:paperclip: Notes for both Hooks and Links so you know why you stored them in the first place.
+
 :bookmark: View all links in alphabetical order
 
 
