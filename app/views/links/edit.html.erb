@@ -12,7 +12,7 @@
         <ul>
             <% @link.tags.each do |tag | %>
                 <li>
-                    <%= link_to tag.name, tag_path(tag.id), method: 'delete'  %>      
+                    <%= link_to '#'+tag.name, tag_path(tag.id), method: 'delete', class:"tags"  %>      
                 </li>
             <% end  %>
         </ul>

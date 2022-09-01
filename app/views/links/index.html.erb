@@ -1,29 +1,51 @@
-<div class="login_container">
 
-    <h2>All Links</h2>
-    <%= link_to 'Add New Link', new_link_path, class:'button' %>
-    <div class="login_form" id="links_list">
-         
 
-        <ul>
-        <% for link in @links.sort{|a,b| a.name <=> b.name } %>
-             <% link.hooks.each do |hook| %>
-                    <% if hook.user.id == @current_user.id %>
-                        <li><strong><%=  link_to link.name, edit_link_path(link.id) %>:</strong> <%= link_to link.url  %></li>
-                        <li class="links_notes"><%= link.notes %></li>
-                        <li><% if link.nsfw %>  <%= image_tag "exclamation.png" %>
-                            <% end %>
-                        <%=  %>
-                        </li>
-                        <hr>
-                    <% end  %>
-                <% end  %>    
+    
+    <%# <div class="login_form" id="links_list"> %>
+        <table class="link_table">
+            <tr>
+                <th scope="col" >Link</th>
+                <th scope="col">Belongs to Hook</th>
+                <th scope="col">Tagged As</th>
+                <th scope="col">Flags</th>
+            </tr>
+            <tr>
+            <% for link in @links.sort{|a,b| a.name <=> b.name } %>
+                <% link.hooks.each do |hook| %>
+                        <% if hook.user.id == @current_user.id %>
+                            <td id="link_col">    <strong><%=  link_to link.name, edit_link_path(link.id) %>:</strong> (<%= link_to link.url  %>)
+                               <p class="table_notes"> <%= link.notes %></p>
+                            </td>
+
+                            <td>
+                               <% link.hooks.each do |hook| %>
+                                <%= link_to hook.title, hooks_path %>
+                              <% end %>
+                            </td>
+
+                            <td>
+                                 <% link.tags.each do |tag| %>
+                                <%= link_to '#'+ tag.name, tags_path , class:"tags"%>
+                                <% end %>
+                            </td>
+
+                            <td class="flags">
+                            <% if link.nsfw %>  <%= image_tag "exclamation.png" , :title => "NSFW Content"%>
+                                <% end %>
+                            </td>
+                            
+                           
+                        </tr>
+                        <% end  %>
+                    <% end  %>    
+                
+            <% end %>
             
-        <% end %>
-        </ul>
-      
-    </div>
         
+        </table> 
+    <%# </div> %>
+  <div class="login_container">
+    <%= link_to 'Add New Link', new_link_path, class:'button' %>
+ </div> 
 
-</div>
 

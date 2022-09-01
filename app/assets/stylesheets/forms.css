@@ -174,3 +174,13 @@ form textarea {
 #tag_input{
     margin-top: 5vh;
 }
+
+/*edit hookmark*/
+#hook_delete_btn{
+    margin-top: 2vh;
+    background-color: var(--rubine-red);
+}
+
+#hook_delete_btn:hover{
+    background-color: rgb(233, 46, 124);
+}

@@ -1,15 +1,17 @@
-<div class="links_list_container">
-    <h2>Viewing all Links by Tag</h2>
+<div class="login_container" id="links_by_tag">
+    <h2 id="links_tag_header">Viewing all Links by Tag</h2>
 
 
     <% @tags.each do |tag| %>
         <% unless tag.name.nil? || tag.name.strip == "" %>
             <% if find_user(tag.name) == true %>
-                <h3 id=<%=tag.name%>>#<%= tag.name %></h3>
+                <h3 id=<%=tag.name%>, class="tags">#<%= tag.name %></h3>
                     <ul>
                         <% tag.links.each do |link| %>
                             <li><%= link_to link.name, hooks_path %>: (<%= link_to link.url , link.url %>)</li> 
+                           
                         <% end  %>
+                         <hr>
                     </ul>
         
             <% end  %>

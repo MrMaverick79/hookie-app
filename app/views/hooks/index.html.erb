@@ -50,28 +50,7 @@
             <% hook.links.each do |l| %>
             <ul class="links_list">
                 <li> 
-                    <% if l.icon? %>
-                    
-                  
-                        <% if l.url[0..3] == 'http' %>
-                           <% if (l.url =~ URI::regexp) %>
-                                  <%= image_tag l.icon %>
-                            <% else %>
-                                <%= image_tag 'dot.png'%>
-                            <% end  %>
-                        <% else %>
-                            <% url =  'https://' + l.icon %>
-                            <% begin open(url).status[1] == 'OK'  %>
-                            <% rescue  %>
-                                <%= image_tag 'dot.png'%>
-                                  
-                            <% else %>
-                                <%= image_tag url %>
-                            <% end  %>
-                        <% end  %>
-                    <% else %>
-                        <%= image_tag 'dot.png'%>
-                    <% end  %>
+                    <%= show_icon l %>
                 </li>
                 <li>
                     <%= link_to l.name,  l.url, class:"link_name" %> (<%= link_to l.url, l.url, class:"link_name"  %>)

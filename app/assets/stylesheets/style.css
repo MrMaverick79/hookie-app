@@ -56,6 +56,11 @@ input {
 
     
 }
+.sidebar_container a:hover{
+    color: var(--rubine-red)
+
+    
+}
 
 .sidebar_container a::after{
     opacity: 1;
@@ -323,6 +328,7 @@ header h1, .title_hookie {
 .edit_hook_container {
     margin: 5vh;
     padding: 10px;
+    text-align: center;
 }
 
 footer {

@@ -1,0 +1,19 @@
+/*tags css*/
+
+/*Link / tag  list */
+#links_tag_header{
+    padding: 20px;
+}
+
+#links_by_tag{
+    padding: 10px;
+   
+}
+
+#links_by_tag a{
+    font-size: 0.8em;
+}
+
+#links_by_tag a:hover{
+    color: var(--rubine-red);
+}

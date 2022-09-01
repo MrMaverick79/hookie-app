@@ -1,6 +1,6 @@
 class LinksController < ApplicationController
 
- 
+  
 
   def new
     @link = Link.new
@@ -105,9 +105,7 @@ class LinksController < ApplicationController
     end #end each do
 end #end associate tags
 
-  def create_icon url 
-    "#{url}" + "/favicon.ico"
-  end #end create_icon
+ 
   #Establish what is expected and allowed in a links form
   def link_params
 

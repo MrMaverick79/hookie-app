@@ -1,5 +1,5 @@
 class ApplicationController < ActionController::Base
-
+include ApplicationHelper
 before_action :fetch_user  #This will run in all controllers, but can be controlled with 'except' and 'only
 def fetch_user
 
