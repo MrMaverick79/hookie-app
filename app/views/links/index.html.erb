@@ -3,17 +3,20 @@
     
     <%# <div class="login_form" id="links_list"> %>
         <table class="link_table">
+        <thead>
             <tr>
                 <th scope="col" >Link</th>
                 <th scope="col">Belongs to Hook</th>
                 <th scope="col">Tagged As</th>
                 <th scope="col">Flags</th>
             </tr>
+        </thead>
+        <tbody>
             <tr>
             <% for link in @links.sort{|a,b| a.name <=> b.name } %>
                 <% link.hooks.each do |hook| %>
                         <% if hook.user.id == @current_user.id %>
-                            <td id="link_col">    <strong><%=  link_to link.name, edit_link_path(link.id) %>:</strong> (<%= link_to link.url  %>)
+                            <td id="link_col">   <%=  link_to link.name, edit_link_path(link.id) %> (<%= link_to link.url  %>)
                                <p class="table_notes"> <%= link.notes %></p>
                             </td>
 
@@ -25,7 +28,9 @@
 
                             <td>
                                  <% link.tags.each do |tag| %>
-                                <%= link_to '#'+ tag.name, tags_path , class:"tags"%>
+                                    <% if !tag.name.nil?  %>
+                                        <%= link_to '#'+ tag.name, tags_path , class:"tags"%>
+                                    <% end %>
                                 <% end %>
                             </td>
 
@@ -36,11 +41,12 @@
                             
                            
                         </tr>
+            
                         <% end  %>
                     <% end  %>    
                 
             <% end %>
-            
+            </tbody>
         
         </table> 
     <%# </div> %>

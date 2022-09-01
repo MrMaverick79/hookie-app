@@ -39,20 +39,22 @@
             <% hook.links.each do |l| %>
                 <% if l.url.size > 8%>
                 <ul class="links_list">
-                <li> 
+                <li class="favicon"> 
                     <%= show_icon l %>
                 </li>
                 <li> 
-                    <%= link_to l.name,  l.url, class:"link_name" %> (<%= link_to l.url, l.url, class:"link_name"  %>)
-                    
+                    <%= link_to l.name,  l.url, class:"link_name" %> 
+                        <% if l.url.length < 30  %>
+                            (<%= link_to l.url, l.url, class:"link_name"  %>)
+                        <% end %>
                     <%= link_to image_tag('pencil.png') , edit_link_path(l.id), class:"edit_delete_icons", id:"pencil_icon"%> <%= image_tag 'bin.png', class:"edit_delete_icons", onclick:"javascript:linkDelete(#{l.id})" %>
                     <% if l.nsfw %>
                         <%= image_tag "exclamation.png", alt: "NSFW", :title => "NSFW Content" %>
                     <% end %>
                     
-                </li>
+                    </li>
                 </ul>
-                <p class=link_notes>
+                <p class="link_notes">
                     <%= l.notes %>
                 <p>
                 <% end %>

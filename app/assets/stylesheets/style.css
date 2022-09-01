@@ -1,5 +1,5 @@
 /*Universal Styles*/
-@import url('https://fonts.googleapis.com/css2?family=Open+Sans:wght@300&family=Poppins:ital,wght@0,400;0,600;1,400&display=swap');
+@import url('https://fonts.googleapis.com/css2?family=Open+Sans:ital,wght@0,300;1,300&family=Poppins:ital,wght@0,400;0,600;1,400&display=swap');
 
 :root{
     --rubine-red: hsla(335, 100%, 42%, 1);
@@ -13,6 +13,7 @@
     --header_height: 15vh;
     --menu_highlight: rgba(61, 61, 61, 0.2);
     --gray_text: rgba(61, 61, 61, 0.8);
+    --button_tag_green:  hsla(171, 100%, 36%, 1);
 
 }
 
@@ -314,7 +315,8 @@ header h1, .title_hookie {
 .tags {
     color:  #fff;
     font-size: 0.6em;
-    background-color: var(--gold-metallic);
+    background-color: hsla(171, 100%, 36%, 1);
+    border: 1px solid var(--gold-metallic);
     display: inline-flex;
     font-weight: 700;
     border-radius: 15px;

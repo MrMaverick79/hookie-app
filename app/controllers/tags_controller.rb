@@ -10,18 +10,20 @@ class TagsController < ApplicationController
 
   def index
     @tags = Tag.all
-    
    
   end
 
   def show
     @tags = Tag.find params[:id]
+    redirect_to tags_path
   end
 
   def edit
+    
   end
 
   def update
+   
   end
 
   def destroy

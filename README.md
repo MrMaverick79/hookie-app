@@ -31,11 +31,12 @@ A Firefox Extension for Hookie can be found [here](https://github.com/MrMaverick
  - Rails version 5.2.8.1
 
 ### Tech Stack:
-
- - PostrgreSQL
- - Jquery
+    
  - Ruby
  - Rails
+ - Jquery
+ - PostrgreSQL
+ - Active Record
  - Deployed on Heroku
 
 ## Development Log

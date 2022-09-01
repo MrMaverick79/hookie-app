@@ -89,7 +89,7 @@ class LinksController < ApplicationController
 
   def associate_tags tags, link
     tags = tags.split
-   
+    tags.uniq!
     tags.each do |tag|
       
     

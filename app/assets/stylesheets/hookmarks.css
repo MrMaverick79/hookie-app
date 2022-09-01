@@ -75,9 +75,18 @@
     margin-top: 0;
 }
 
+.tags_container{
+    margin-bottom: 8px;
+}
+
 .notes {
     border-bottom: 2px solid var(--gray_text);
     margin: 5px;
+    font-style: italic;
+}
+
+.favicon{
+    padding: 5px;
 }
 
 .hook_container img {
@@ -101,6 +110,13 @@
     margin-right: 10px;
     text-shadow: 1px 1px var(--middle-blue)
 }
+
+.more_icon{
+    opacity: 0.5;
+    
+}
+
+
 .links_list{
     display: inline-flex;
     width: 90%;
@@ -109,7 +125,10 @@
 .link_name:hover{
     background-color: hsla(335, 100%, 42%, 0.4);
 }
-
+.link_notes{
+    font-style: italic;
+    font-size: 0.8em;
+}
 /* Hidden Link Form */
 /*container*/
 .new_link_hidden{

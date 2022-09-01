@@ -29,9 +29,11 @@ class UsersController < ApplicationController
   end #create
 
   def index
+    redirect_to login_path
   end
 
   def show
+    redirect_to login_path
   end
 
   def edit

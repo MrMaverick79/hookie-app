@@ -145,16 +145,17 @@ $(document).ready(function() {
 
 
 $(document).ready(function() {
-    $('.tag_submit').mousedown(function(){
-        // console.log('mousedown'); TESTING
+    $('.tag_submit').mousedown( function(){
+        // console.log('mousedown'); 
+        
         const input = $('.tag_input').val()
         // console.log(`input= ${input}`);TESTING
-        const text = $('.new_tags li').text()  
+        const text = $('.new_tags li').text()   //This will terater over each hook so
+
         // console.log(`Text= ${text}`); TESTING
-        console.log('Tags here is ' + tags);
-        let test = (text + input + tags);
-        // console.log(test); TESTING
-        $('.tag_input').val(test);
+        
+        let finalInput = (text + input + tags);
+        $('.tag_input').val(finalInput);
         // console.log($('#tag_input').val()); TESTING
     
        
