@@ -93,7 +93,7 @@ const  linkDelete = (id) => {
     
 
 //Tag entry form logic.
-let tags = "" //need this to be global
+let tags = " " //need this to be global
 
 $(document).ready(function() {
     const input = $('.tag_input')
@@ -151,7 +151,7 @@ $(document).ready(function() {
 
         // console.log(`Text= ${text}`); TESTING
         
-        let finalInput = (text + input + " " + tags);
+        let finalInput = (text + input +  tags);
         $('.tag_input').val(finalInput);
         // console.log($('#tag_input').val()); TESTING
     
