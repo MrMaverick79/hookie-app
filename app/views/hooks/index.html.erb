@@ -29,12 +29,12 @@
                 <% @name_list = show_unique_tags hook.links %>
                        
                 <% @name_list.each do |name|%>
-                    <p class ="tags">#<%= link_to name, tags_path %></p>
+                    <p class ="tags">#<%= link_to name, tags_path + "\/\##{name}" %></p>
                 <%  end%>
                                     
                     
                
-            </div> <!--end tags constainer-->
+            </div> <!--end tags container-->
             
             <% hook.links.each do |l| %>
                 <% if l.url.size > 8%>

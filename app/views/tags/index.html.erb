@@ -5,7 +5,8 @@
     <% @tags.each do |tag| %>
         <% unless tag.name.nil? || tag.name.strip == "" %>
             <% if find_user(tag.name) == true %>
-                <h3 id=<%=tag.name%>, class="tags">#<%= tag.name %></h3>
+                
+                <h3 id=<%=tag.name%> class="tags">#<%= tag.name %></h3>
                     <ul>
                         <% tag.links.each do |link| %>
                             <li><%= link_to link.name, hooks_path %>: (<%= link_to link.url , link.url %>)</li> 

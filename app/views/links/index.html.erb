@@ -29,7 +29,7 @@
                             <td>
                                  <% link.tags.each do |tag| %>
                                     <% if !tag.name.nil?  %>
-                                        <%= link_to '#'+ tag.name, tags_path , class:"tags"%>
+                                        <%= link_to '#'+ tag.name, (tags_path+ "\/\##{tag.name}") , class:"tags"%>
                                     <% end %>
                                 <% end %>
                             </td>

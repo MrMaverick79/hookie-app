@@ -4,13 +4,10 @@ console.log('Mic check');
 $(document).ready(function() {
     $('.links_list li').hover(function(e){
         
-        $(e.target.children[2]).stop().toggle( "slow", function(){
+        $(e.target).children(".edit_delete_icons").stop().toggle( "slow", function(){
 
         })
-        $(e.target.children[3]).stop().toggle( "slow", function(){
-
-        })
-
+        
     });
    
 });
