@@ -151,7 +151,7 @@ $(document).ready(function() {
 
         // console.log(`Text= ${text}`); TESTING
         
-        let finalInput = (text + input + tags);
+        let finalInput = (text + input + " " + tags);
         $('.tag_input').val(finalInput);
         // console.log($('#tag_input').val()); TESTING
     
