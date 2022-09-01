@@ -27,6 +27,27 @@ module ApplicationHelper
       end #if
   end #end  show_icon
  
+  def show_unique_tags hook_links
+    @name_list = [] 
+        hook_links.each do |link|
+            link.tags.each do |tag|
+                if tag.name != nil #if the tag is not nil
+                    unless tag.name.strip.empty? #if the tag is not an empty string
+                        @name_list << tag.name 
+                            
+                    end #end unless
+                end #if
+            end #end link do 
+        end #end hook links do
 
+        if @name_list != nil #if the name list is not empty
+            @name_list.uniq! #get rid of duplicates
+            @name_list.sort!  #sort--because why not
+        
+        end #if
+
+        @name_list #passes this back to  be iterated over
+
+    end  #end show_unique_tags
 
 end

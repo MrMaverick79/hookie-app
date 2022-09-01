@@ -29,7 +29,7 @@
        
         
         <%= f.text_field :tag_name, placeholder: 
-        "Tag this link as", id:"tag_input" %>
+        "Tag this link as", id:"tag_input", class:"tag_input" %>
         <br>
          <%= f.label :tag_id,  "Seperate tags with space or comma", class:"label" %>
         
@@ -46,6 +46,6 @@
             </label>
         </div>
         
-        <%= f.submit "Submit", id:"tag_submit" ,class:"button"%>
+        <%= f.submit "Submit", id:"tag_submit" ,class:"tag_submit button"%>
     <% end %>
 </div>

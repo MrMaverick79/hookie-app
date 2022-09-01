@@ -96,25 +96,32 @@ const  linkDelete = (id) => {
     
 
 //Tag entry form logic.
+let tags = "" //need this to be global
 
 $(document).ready(function() {
-    const input = $('#tag_input')
+    const input = $('.tag_input')
+   
     const list = $('.new_tags')
     
     
     input.keydown(function(event) {
             //breaks the tags into words using space or comma,
-            console.log(event.which);
-            if (event.which === 32 && input.val().length > 2 || event.which === 188 && input.val().length > 2) {
+           
+            text  = $(this).val() 
+          
+            if (event.which === 32 && text.length > 2 || event.which === 188 && text.length > 2) {
                 
                 console.log('Passing!');
                 let newLi = document.createElement("li")
                 
-                newLi.innerHTML = input.val() + " "
+                newLi.innerHTML = text + " "
+                //also add it to the global tags
+                tags += text + " "
                 list.append(newLi); 
                 input.val("") 
+                //need to make a function
             }
-    })
+    });
     
     
 
@@ -134,24 +141,22 @@ $(document).ready(function() {
 
 //add all of the tags to the input of the form so so that they are submitted
 
+//need to create a global strong to add to
+
+
 $(document).ready(function() {
-    $('#tag_submit').mousedown(function(){
+    $('.tag_submit').mousedown(function(){
         // console.log('mousedown'); TESTING
-        const input = $('#tag_input').val()
+        const input = $('.tag_input').val()
         // console.log(`input= ${input}`);TESTING
         const text = $('.new_tags li').text()  
         // console.log(`Text= ${text}`); TESTING
-        let test = (text + input);
+        console.log('Tags here is ' + tags);
+        let test = (text + input + tags);
         // console.log(test); TESTING
-        $('#tag_input').val(test);
+        $('.tag_input').val(test);
         // console.log($('#tag_input').val()); TESTING
     
        
     })
 });
-//grab all of the ul li and the value of the input
-
-//add them all to the 'Tag_id"
-
-      
-    

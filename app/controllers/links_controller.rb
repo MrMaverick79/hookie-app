@@ -17,16 +17,19 @@ class LinksController < ApplicationController
 
 
     @link = Link.new link_params
-    associate_tags @tags, @link
+    
     ## Add https:// to the link if it is not there
     if @link.url[0..3] != 'http'
       @link.url = 'https://' + @link.url
     end 
-    @link.icon = create_icon @link.url
+   
     @link.hooks << @hook
     # @link.tags << @tag
     @link.save
     if @link.persisted?  # ie does this now have an id
+      associate_tags @tags, @link
+      @link.icon = create_icon @link.url
+      @link.save 
       
       redirect_to hooks_path
     else
@@ -91,16 +94,19 @@ class LinksController < ApplicationController
       
     
     existing_tag = Tag.find_by name: tag
+      
+        if existing_tag != nil
+          existing_tag.links << link 
+        else       
+            new_tag = Tag.create(
+              name: tag
+            )
+            link.tags << new_tag 
+    
+        end #end if
+     
 
-      if existing_tag != nil
-        existing_tag.links << link 
-      else       
-          new_tag = Tag.create(
-            name: tag
-          )
-          link.tags << new_tag 
-  
-      end #end if
+      
       
     end #end each do
 end #end associate tags
