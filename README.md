@@ -2,19 +2,18 @@
 
 Welcome to **HOOKIE Bookmarks** README.
 
-**HOOKIE** is a simple to use platform for storing bookmarks in categories-or hooks--in a way that makes them easy to find and access them.
-
+**HOOKIE** is a simple to use platform for storing bookmarks in categories-called 'Hooks'-in a way that makes them easy to find and access them.
 
 
 **Features**:
 
-:file_folder: Easy to use collections to store, edit, and access your links.
+:file_folder: Easy to use collections to store, edit, and access your links.Each Hook can be given a title so that you can organise your bookmarks according to a theme, a project, a function, or whatever you choose.
 
 :bookmark_tabs: Tag your links and view similar links in any category.
 
 :paperclip: Notes for both Hooks and Links so you know why you stored them in the first place.
 
-:bookmark: View all links in alphabetical order
+:bookmark: View all links in alphabetical order.
 
 
 **Author**: Brendan Tuckerman (https://github.com/MrMaverick79)
@@ -75,11 +74,18 @@ A Firefox Extension for Hookie can be found [here](https://github.com/MrMaverick
 
 ## Known Bugs 
 
+- Some tags not displaying correctly
+- Styling issues with form text sizing
+- Adding a new link defaults to the first Hook on the selection
+- There is probably more! Feel free to contact me if you find them.
+
 ## Future Directions
 
-- [ ] Make Hooks public / private so that they could be shared among users.
+- [ ] Search function
+- [ ] Make Hooks public / private visibility effect whether they could be shared among users.
 - [ ] Email verification on signin
 - [ ] Further development of browser extension
+- [ ] 'Speed Dial' selection for frequently used links 
 
 ## Attributions ##
 
