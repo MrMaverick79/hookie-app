@@ -1,5 +1,5 @@
 class LinksController < ApplicationController
-
+  skip_before_action :verify_authenticity_token, :only => [:create]
   
 
   def new
@@ -10,8 +10,12 @@ class LinksController < ApplicationController
 
   def create
     @hooks = Hook.find_by user: @current_user.id
-    @hook = Hook.find params[:link][:hook_id]
-    @tags = params[:link][:tag_name]
+    if params[:link].present? #for links coming from within the app
+      @hook = Hook.find params[:link][:hook_id]
+      @tags = params[:link][:tag_name]
+    else  #for the extension
+      @hook = Hook.find_by title: params[:hook_title]
+    end
     
     
 
@@ -30,8 +34,9 @@ class LinksController < ApplicationController
       associate_tags @tags, @link
       @link.icon = create_icon @link.url
       @link.save 
-      
-      redirect_to hooks_path
+      if params[:link].present? #internal request
+        redirect_to hooks_path
+      end
     else
       render :new
     end
@@ -54,8 +59,13 @@ class LinksController < ApplicationController
   def update
     @link = Link.find params[:id]
     @tags = params[:link][:tag_name]
+    hook = Hook.find params[:link][:hook_id]
+    
+    @link.hooks << hook
+    @link.save
     associate_tags @tags, @link
     if @link.update link_params 
+     
       redirect_to hooks_path
 
     else
@@ -88,34 +98,39 @@ class LinksController < ApplicationController
   private
 
   def associate_tags tags, link
-    tags = tags.split
-    tags.uniq!
-    tags.each do |tag|
+    if !tags.nil?
+      tags = tags.split
+      tags.uniq!
+      tags.each do |tag|
+        
       
-    
-    existing_tag = Tag.find_by name: tag
+      existing_tag = Tag.find_by name: tag
+        
+          if existing_tag != nil
+            existing_tag.links << link 
+          else       
+              new_tag = Tag.create(
+                name: tag
+              )
+              link.tags << new_tag 
       
-        if existing_tag != nil
-          existing_tag.links << link 
-        else       
-            new_tag = Tag.create(
-              name: tag
-            )
-            link.tags << new_tag 
-    
-        end #end if
-     
+          end #end if
+      
 
-      
-      
-    end #end each do
+        
+        
+      end #end each do
+    end #if
 end #end associate tags
 
  
   #Establish what is expected and allowed in a links form
   def link_params
-
-    params.require(:link).permit(:name, :url, :color, :notes, :icon, :nsfw, :image)
+    if params[:link].present?
+      params.require(:link).permit(:name, :url, :color, :notes, :icon, :nsfw, :image)
+    else
+      params.permit(:name, :url, :color, :notes, :icon, :nsfw, :image)
+    end
   end
 
   

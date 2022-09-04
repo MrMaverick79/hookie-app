@@ -19,6 +19,15 @@ class UsersController < ApplicationController
         user_id: @user.id
 
       )
+      #Create a hook to stroe links from the browser extensiton
+      Hook.create(
+        title: "Hookie Extension",
+        note: "Keep this hookmark to add links via the Hookie broswer extension.,",
+        color: "rgb(35, 104, 71)",
+        private: false,
+        user_id: @user.id
+
+      )
 
       redirect_to hooks_path(@user.id)
     else
