@@ -8,7 +8,7 @@ class SessionController < ApplicationController
     user = User.find_by email: params[:email]
     if user.present? && user.authenticate( params[:password] )
 
-      session[:user_id] = user.id #Also do this when creating a new user. This remembers  the contents across page reloads/. This stores a cookie that will remmeber the session detaiuls in ahash and then reload to know what the statu s iu--they are stored in a cookie. 
+      session[:user_id] = user.id #Also do this when creating a new user. This remembers  the contents across page reloads/. This stores a cookie that will remember the session details in a hash and then reload to know what the statu s is--they are stored in a cookie. 
       redirect_to hooks_path
 
         #credentials correct

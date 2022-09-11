@@ -5,6 +5,7 @@
   
     <% @hooks.each do |hook| %>    
         <% if @current_user.present? && hook.user.id == @current_user.id %>
+       
     
         <div class="hook_container">
             <div class="color_label", style= "background-color:<%= hook.color %>">
@@ -37,6 +38,7 @@
             </div> <!--end tags container-->
             
             <% hook.links.each do |l| %>
+                
                 <% if l.url.size > 8%>
                 <ul class="links_list">
                 <li class="favicon"> 

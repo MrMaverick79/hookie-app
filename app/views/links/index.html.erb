@@ -13,8 +13,10 @@
         </thead>
         <tbody>
             <tr>
+            
             <% for link in @links.sort{|a,b| a.name <=> b.name } %>
                 <% link.hooks.each do |hook| %>
+                   
                         <% if hook.user.id == @current_user.id %>
                             <td id="link_col">   <%=  link_to link.name, edit_link_path(link.id) %> (<%= link_to link.url  %>)
                                <p class="table_notes"> <%= link.notes %></p>

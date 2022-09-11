@@ -7,17 +7,17 @@ def fetch_user
     if session[:user_id].present?
         @current_user = User.find_by id: session[:user_id]
   #we use find_by here as it returns nil if not found, as opposed to find which will throw an error.
-      end #login check
+    end #login check
   
-      unless @current_user.present? ##e.g. after reseeding to avoid invalid id. This is most likely during development, but might happen if someon who was logged in deletes their acccount. 
+    unless @current_user.present? ##e.g. after reseeding to avoid invalid id. This is most likely during development, but might happen if someon who was logged in deletes their acccount. 
         session[:user_id] = nil
   
-      end  #end nil check
+    end  #end nil check
         
       # or:
       #session[:user_id] = nil unless @current_user.present?
       
-    end #end fetch user
+end #end fetch user
 
     #run this before any pages that reuyire the user to be logged in
 
@@ -31,7 +31,7 @@ def fetch_user
             redirect_to login_path
         end#unless
   
-    end #end check_if_logged_in
+end #end check_if_logged_in
 
    
     

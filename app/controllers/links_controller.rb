@@ -1,4 +1,5 @@
 class LinksController < ApplicationController
+  before_action :check_if_logged_in
   skip_before_action :verify_authenticity_token, :only => [:create]
   
 
@@ -9,18 +10,22 @@ class LinksController < ApplicationController
   end
 
   def create
+   
     @hooks = Hook.find_by user: @current_user.id
     if params[:link].present? #for links coming from within the app
       @hook = Hook.find params[:link][:hook_id]
       @tags = params[:link][:tag_name]
     else  #for the extension
-      @hook = Hook.find_by title: params[:hook_title]
+      @link = Link.new
+      @hook = Hook.find_by title: params[:title]
+      
     end
-    
+    @link = Link.create link_params
     
 
 
-    @link = Link.new link_params
+   
+    
     
     ## Add https:// to the link if it is not there
     if @link.url[0..3] != 'http'
@@ -30,13 +35,14 @@ class LinksController < ApplicationController
     @link.hooks << @hook
     # @link.tags << @tag
     @link.save
+    
     if @link.persisted?  # ie does this now have an id
       associate_tags @tags, @link
       @link.icon = create_icon @link.url
       @link.save 
-      if params[:link].present? #internal request
+      # if params[:link].present? #internal request
         redirect_to hooks_path
-      end
+      # end
     else
       render :new
     end
@@ -49,7 +55,6 @@ class LinksController < ApplicationController
 
   def show
     @link = Link.find params[:id]
-    # @favicon_link = @link.url + '/favicon.ico'
   end
 
   def edit
@@ -84,17 +89,7 @@ class LinksController < ApplicationController
   #   favicon_url = Hash.new{}
     
     
-  #   nokogiri_object = Nokogiri::HTML(open(url)) 
-  #   nokogiri_object.css('link').each do |link|
-  #       if %['shortcut icon', 'icon', 'shortcut'].include?(link['rel'])
-  #         found_url = true
-  #         favicon_url << [URI::join(url, link['href']).to_s, (link['sizes'].split rescue [])]
-  #       end
-      
-  #     favicon_url << [URI::join(url, '/favicon.ico').to_s, []] unless found_url
-  #   end #end each
-
-# end #end find_ico
+  
   private
 
   def associate_tags tags, link
